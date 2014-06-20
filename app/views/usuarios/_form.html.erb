@@ -1,0 +1,7 @@
+<%= semantic_form_for @usuario do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :nombre, :hint => "Nombre registrado ante el SAT" %>
+    <%= f.input :rfc, :hint => "RFC asignado de contribuyente" %>
+    <%= f.input :password, :hint => "Password de su preferencia" %>
+  <% end %>
+<% end %>
