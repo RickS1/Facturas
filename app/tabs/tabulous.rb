@@ -39,7 +39,7 @@ Tabulous.setup do
   #
   # This scaffolding should be turned off and replaced by your own custom
   # CSS before using tabulous in production.
-  use_css_scaffolding #do
+  #use_css_scaffolding #do
     #background_color '#ccc'
     #text_color '#444'
     #active_tab_color '#fff'

@@ -46,6 +46,6 @@ Tabulous.setup do
     #hover_tab_color '#ddd'
    # inactive_tab_color '#aaa'
     #inactive_text_color '#888'
-  end
+  #end
 
 end

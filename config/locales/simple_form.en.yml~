@@ -11,14 +11,14 @@ es:
     error_notification:
       default_message: "Por favor, revise los siguientes aspectos:"
     # Labels and hints examples
-    labels:
-      defaults:
-        password: 'Contraseña'
-      user:
-        new:
-          email: 'Correo electrónico.'
-        edit:
-          email: 'Correo electrónico.'
+    # labels:
+    #   defaults:
+    #     password: 'Contraseña'
+    #   user:
+    #     new:
+    #       email: 'Correo electrónico.'
+    #     edit:
+    #       email: 'Correo electrónico.'
     # hints:
     #   defaults:
     #     username: 'Nombre de usuario a registrar.'
