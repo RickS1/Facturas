@@ -4,7 +4,7 @@
   <%= f.error_notification %>
    <div>
     <%= f.input :rfc, :required => true, :autofocus => true, :label => "RFC", :input_html => {:maxlength =>50,:style=> 'width: 150px'} %>
-    <%= f.input :password, :required => true, :label => "Contraseña", :input_html => {:maxlength =>15,:style=> 'width: 150px'} %>
+    <%= f.input :password, :required => true, :label => "Contraseña", :input_html => {:maxlength =>20,:style=> 'width: 150px'} %>
    </div>
     <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
 
