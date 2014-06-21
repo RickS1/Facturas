@@ -1,15 +1,15 @@
 <h2>Registrarse</h2>
 
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form-inline' }) do |f| %>
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 <div>
      <%= f.input :nombre, :required => true, :autofocus => true, :placeholder => 'Su nombre', :label => "Nombre", :hint => 'Nombre registrado ante el SAT' %>
      <%= f.input :rfc, :required => true, :autofocus => true, :label => "RFC", :hint => 'RFC de contribuyente' %>
      <%= f.input :calle, :required => true, :autofocus => true, :placeholder => 'Del domicilio registrado', :label => "Calle" %>
      <%= f.input :numexterno, :required => true, :autofocus => true, :label => "Número exterior" %>
-     <%= f.input :numinterno, :required => false, :autofocus => true, :label => "Número interior", :hint => 'De existir' %>
+     <%= f.input :numinterno, :required => true, :autofocus => true, :label => "Número interior", :hint => 'De existir' %>
      <%= f.input :colonia, :required => true, :autofocus => true, :label => "Colonia" %>
-     <%= f.input :codpostal, :required => true, :autofocus => true, :label => "Código postal" %> 
+     <%= f.input :codpostal, :required => true, :autofocus => true, :label => "Código postal" %>
      <%= f.input :delegacion, :required => true, :autofocus => true, :label => "Delegación/municipio" %>
      <%= f.input :ciudad, :required => true, :autofocus => true, :label => "Ciudad" %>
      <%= f.input :estado, :required => true, :autofocus => true, :label => "Estado" %>

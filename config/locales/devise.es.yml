@@ -71,3 +71,4 @@ es:
               blank: 'No puede estar vacío.'
             email:
               invalid: 'Correo inválido.'
+              blank: 'No puede estar en blanco.'

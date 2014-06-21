@@ -17,6 +17,8 @@ gem 'simple_form'
 gem 'country_select'
 #gem 'rails_bootstrap_navbar'
 gem 'tabulous'
+gem 'hairtrigger'
+gem "squirm_rails", require: "squirm/rails"
 #gem 'rake-convert', '~> 0.0.4'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes

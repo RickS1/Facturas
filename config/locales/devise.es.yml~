@@ -63,3 +63,11 @@ es:
       feedback:
         subject: 'tema'
         comment: 'comentario'
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              blank: 'No puede estar vacío.'
+            email:
+              invalid: 'Correo inválido.'
