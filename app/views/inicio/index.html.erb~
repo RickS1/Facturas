@@ -1,0 +1,7 @@
+<h1></h1>
+<div class="jumbotron">
+  <h1>¡Bienvenido al sistema de facturación electrónica!</h1>
+  <p>Ola ke ase</p>
+  <p><a class="btn btn-primary btn-lg" role="button" href="http://localhost:3000/users/sign_up">Registrarse</a></p>
+</div>
+

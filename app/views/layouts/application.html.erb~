@@ -7,7 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-= navbar
+<div class="navbar">
+    <div class="container-fluid">
+      <a class="navbar navbar-left text-muted @font-family-serif @font-size-large" href="#">Facturas</a>
+      <%= tabs %>
+    </div>
+</div>
 <%= yield %>
 
 </body>
