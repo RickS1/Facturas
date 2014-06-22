@@ -67,7 +67,15 @@ es:
       models:
         user:
           attributes:
+            nombre:
+              blank: 'No puede estar vacío.'
+            rfc:
+              blank: 'No puede estar vacío,'
+              invalid: 'RFC ya registrado o no válido.'
+            calle:
+              blank: 'No puede estar vacío.'
             password:
               blank: 'No puede estar vacío.'
             email:
               invalid: 'Correo inválido.'
+              blank: 'No puede estar en blanco.'
