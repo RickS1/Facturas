@@ -1,20 +1,28 @@
 Tabulous.setup do
 
   tabs do
-    factura_tab do
+    registro_tab do
       text		'Entrar'
       link_path		'http://localhost:3000/users/sign_up'
-      visible_when	{true}
-      enabled_when	{true}
+      visible_when	{!current_user.present?}
+      enabled_when	{!current_user.present?}
       active_when	{in_action('any').of_controller('registro')}
     end
 
     articulo_tab do
       text		'Catálogo de artículos'
       link_path		'http://localhost:3000/articulos'
-      visible_when	{true}
+      visible_when	{current_user.present?}
       enabled_when	{current_user.present?}
       active_when	{in_action('any').of_controller('articulos')}
+    end
+
+    sesion_tab do
+      text		'Iniciar sesión'
+      link_path		'http://localhost:3000/users/sign_in'
+      visible_when	{!current_user.present?}
+      enabled_when	{!current_user.present?}
+      active_when	{in_action('any').of_controller('sesion')}
     end
   end
 

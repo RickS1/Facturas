@@ -1,7 +1,7 @@
 Tabulous.setup do
 
   tabs do
-    factura_tab do
+    registro_tab do
       text		'Entrar'
       link_path		'http://localhost:3000/users/sign_up'
       visible_when	{true}
@@ -16,6 +16,14 @@ Tabulous.setup do
       enabled_when	{current_user.present?}
       active_when	{in_action('any').of_controller('articulos')}
     end
+
+    sesion_tab do
+      text		'Iniciar sesión'
+      link_path		'http://localhost:3000/users/sign_in'
+      visible_when	{true}
+      enabled_when	{!current_user?}
+      active_when	{in_action('any').of_controller('sesion')}
+    end
   end
 
   customize do
@@ -23,7 +31,7 @@ Tabulous.setup do
     # which class to use to generate HTML
     # :default, :html5, :bootstrap, :bootstrap_pill or :bootstrap_navbar
     # or create your own renderer class and reference it here
-    renderer :bootstrap_pill
+    renderer :bootstrap_navbar
 
     # whether to allow the active tab to be clicked
     # defaults to true

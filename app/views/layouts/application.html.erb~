@@ -7,9 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="navbar">
+<nav class="navbar">
     <div class="container-fluid">
-      <a class="navbar navbar-left text-muted @font-family-serif @font-size-large" href="#">Facturas</a>
+      <a class="navbar-brand" href="#">Facturas</a>
       <%= tabs %>
     </div>
 </div>

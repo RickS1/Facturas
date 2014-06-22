@@ -1,11 +1,13 @@
 Facturas::Application.routes.draw do
+  get "sesion/sesion"
+
   resources :articulos
 
   get "registro/registro"
 
   get "inicio/index"
 
-  devise_for :users, :controllers => { registrations: 'registro' }
+  devise_for :users, :controllers => { registrations: 'registro', sessions: 'sesion' }
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

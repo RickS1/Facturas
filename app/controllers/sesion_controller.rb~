@@ -1,0 +1,4 @@
+class SesionController < ApplicationController
+  def sesion
+  end
+end
