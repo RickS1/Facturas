@@ -19,4 +19,6 @@ class User < ActiveRecord::Base
   validates_presence_of :ciudad
   validates_presence_of :estado
   validates_uniqueness_of :rfc
+
+  has_many :articulos, dependent: :destroy
 end

@@ -1,4 +1,6 @@
 Facturas::Application.routes.draw do
+  resources :articulos
+
   get "registro/registro"
 
   get "inicio/index"
