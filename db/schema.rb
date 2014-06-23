@@ -11,13 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140622064011) do
+ActiveRecord::Schema.define(:version => 20140623043927) do
 
   create_table "articulos", :force => true do |t|
     t.string   "nombre"
     t.string   "descripcion"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "clientes", :force => true do |t|
+    t.string   "nombre"
+    t.string   "rfc"
+    t.string   "calle"
+    t.string   "numexterno"
+    t.string   "numinterno"
+    t.string   "colonia"
+    t.string   "codpostal"
+    t.string   "delegacion"
+    t.string   "ciudad"
+    t.string   "estado"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -43,6 +58,7 @@ ActiveRecord::Schema.define(:version => 20140622064011) do
     t.string   "ciudad"
     t.string   "estado"
     t.string   "rfc"
+    t.string   "role"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

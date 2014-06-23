@@ -24,6 +24,14 @@ Tabulous.setup do
       enabled_when	{!current_user.present?}
       active_when	{in_action('any').of_controller('sesion')}
     end
+
+    cliente_tab do
+      text		'Cartera de clientes'
+      link_path		'http://localhost:3000/clientes'
+      visible_when	{current_user.present?}
+      enabled_when	{current_user.present?}
+      active_when	{in_action('any').of_controller('clientes')}
+    end
   end
 
   customize do

@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, 
 :remember_me, :nombre, :rfc, :calle, :numexterno, :numinterno,
-:colonia, :codpostal, :delegacion, :ciudad, :estado,  :tags_attributes
+:colonia, :codpostal, :delegacion, :ciudad, :estado, :role,:tags_attributes
   validates_presence_of :nombre
   validates_presence_of :rfc
   validates_presence_of :calle
@@ -19,6 +19,10 @@ class User < ActiveRecord::Base
   validates_presence_of :ciudad
   validates_presence_of :estado
   validates_uniqueness_of :rfc
+  validates_presence_of :role
 
   has_many :articulos, dependent: :destroy
+  has_many :clientes, dependent: :destroy
+
+  ROLES = %w[fisico moral]
 end
