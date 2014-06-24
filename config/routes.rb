@@ -1,9 +1,11 @@
 Facturas::Application.routes.draw do
+  resources :facturas
+
   resources :clientes
 
-  get "sesion/sesion"
-
   resources :articulos
+
+  get "sesion/sesion"
 
   get "registro/registro"
 

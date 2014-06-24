@@ -12,7 +12,7 @@ Tabulous.setup do
     articulo_tab do
       text		'Catálogo de artículos'
       link_path		'http://localhost:3000/articulos'
-      visible_when	{current_user.present?}
+      visible_when	{!current_user.present?}
       enabled_when	{current_user.present?}
       active_when	{in_action('any').of_controller('articulos')}
     end
@@ -28,9 +28,17 @@ Tabulous.setup do
     cliente_tab do
       text		'Cartera de clientes'
       link_path		'http://localhost:3000/clientes'
-      visible_when	{current_user.present?}
+      visible_when	{!current_user.present?}
       enabled_when	{current_user.present?}
       active_when	{in_action('any').of_controller('clientes')}
+    end
+
+    factura_tab do
+      text		'Facturas emitidas'
+      link_path		'http://localhost:3000/facturas'
+      visible_when	{!current_user.present?}
+      enabled_when	{current_user.present?}
+      active_when	{in_action('any').of_controller('facturas')}
     end
   end
 

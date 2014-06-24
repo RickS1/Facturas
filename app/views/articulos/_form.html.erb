@@ -2,11 +2,11 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :nombre %>
-    <%= f.input :descripcion %>
+    <%= f.input :nombre, :label => 'Nombre' %>
+    <%= f.input :descripcion, :label => 'Descripción' %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, :class => 'btn btn-primary' %>
   </div>
 <% end %>

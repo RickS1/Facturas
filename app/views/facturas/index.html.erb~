@@ -1,0 +1,27 @@
+<h1>Facturas emitidas</h1>
+
+<table class = "table table-hover">
+  <tr>
+    <th>Factura</th>
+    <th>Subtotal</th>
+    <th>Iva</th>
+    <th>Total</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @facturas.each do |factura| %>
+  <tr>
+    <td><%= factura.factura_id %></td>
+    <td><%= factura.subtotal %></td>
+    <td><%= factura.iva %></td>
+    <td><%= factura.total %></td>
+    <td><%= link_to 'Mostrar', factura %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Emitir factura', new_factura_path %>

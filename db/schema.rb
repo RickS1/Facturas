@@ -11,9 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140623043927) do
+ActiveRecord::Schema.define(:version => 20140624060102) do
 
   create_table "articulos", :force => true do |t|
+    t.integer  "user_id"
     t.string   "nombre"
     t.string   "descripcion"
     t.datetime "created_at",  :null => false
@@ -31,6 +32,23 @@ ActiveRecord::Schema.define(:version => 20140623043927) do
     t.string   "delegacion"
     t.string   "ciudad"
     t.string   "estado"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "factura_articulo", :id => false, :force => true do |t|
+    t.integer "factura_id"
+    t.integer "articulo_id"
+  end
+
+  create_table "facturas", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "cliente_id"
+    t.decimal  "precio_u"
+    t.integer  "cantidad"
+    t.decimal  "subtotal"
+    t.decimal  "iva"
+    t.decimal  "total"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -64,5 +82,10 @@ ActiveRecord::Schema.define(:version => 20140623043927) do
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["rfc"], :name => "index_users_on_rfc"
+
+  create_table "usuario_cliente", :id => false, :force => true do |t|
+    t.integer "cliente_id"
+    t.integer "user_id"
+  end
 
 end

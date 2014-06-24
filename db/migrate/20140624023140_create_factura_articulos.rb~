@@ -1,0 +1,11 @@
+class CreateFacturaArticulos < ActiveRecord::Migration
+  def change
+    create_table :factura_articulos do |t|
+      t.decimal :precio_u
+      t.integer :cantidad
+      t.decimal :subtotal
+
+      t.timestamps
+    end
+  end
+end

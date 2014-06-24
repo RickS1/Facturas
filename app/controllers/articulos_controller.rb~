@@ -1,8 +1,6 @@
 class ArticulosController < ApplicationController
-
   # GET /articulos
   # GET /articulos.json
-  before_filter :authenticate_user!
   def index
     @articulos = Articulo.all
 
@@ -10,6 +8,11 @@ class ArticulosController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @articulos }
     end
+  end
+
+  def userfind
+    @articulo = Articulo.find(params[:user_id])
+
   end
 
   # GET /articulos/1

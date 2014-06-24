@@ -1,0 +1,5 @@
+class AddUserToClientes < ActiveRecord::Migration
+  def change
+     
+  end
+end

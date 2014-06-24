@@ -1,8 +1,6 @@
 class ArticulosController < ApplicationController
-
   # GET /articulos
   # GET /articulos.json
-  #before_filter :authenticate_user!
   def index
     @articulos = Articulo.all
 
