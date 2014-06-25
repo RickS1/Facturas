@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
 
   has_many :articulos, dependent: :destroy
   has_and_belongs_to_many :clientes
+  has_many :facturas
 
   ROLES = %w[fisico moral]
 end

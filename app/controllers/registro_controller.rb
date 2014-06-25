@@ -13,4 +13,9 @@ class RegistroController < Devise::RegistrationsController
 :delegacion, :ciudad, :estado, :email, :password, 
 :current_password, :password_confirmation)
   end
+
+  def after_sign_up_path_for(resource)
+     'http://localhost:3000/facturas'
+  end
+
 end

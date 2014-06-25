@@ -12,7 +12,7 @@ class CreateFacturas < ActiveRecord::Migration
       t.timestamps
     end
 
-    create_table :factura_articulo, id: false do |t|
+    create_table :articulos_facturas, id: false do |t|
       t.belongs_to :factura
       t.belongs_to :articulo
     end

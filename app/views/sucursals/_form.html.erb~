@@ -1,0 +1,19 @@
+<%= simple_form_for(@sucursal) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :alias %>
+    <%= f.input :calle %>
+    <%= f.input :numexterno %>
+    <%= f.input :numinterno %>
+    <%= f.input :colonia %>
+    <%= f.input :codpostal %>
+    <%= f.input :delegacion %>
+    <%= f.input :ciudad %>
+    <%= f.input :estado %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn btn-primary' %>
+  </div>
+<% end %>

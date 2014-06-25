@@ -12,7 +12,7 @@ Tabulous.setup do
     articulo_tab do
       text		'Catálogo de artículos'
       link_path		'http://localhost:3000/articulos'
-      visible_when	{!current_user.present?}
+      visible_when	{current_user.present?}
       enabled_when	{current_user.present?}
       active_when	{in_action('any').of_controller('articulos')}
     end
@@ -28,7 +28,7 @@ Tabulous.setup do
     cliente_tab do
       text		'Cartera de clientes'
       link_path		'http://localhost:3000/clientes'
-      visible_when	{!current_user.present?}
+      visible_when	{current_user.present?}
       enabled_when	{current_user.present?}
       active_when	{in_action('any').of_controller('clientes')}
     end
@@ -36,9 +36,26 @@ Tabulous.setup do
     factura_tab do
       text		'Facturas emitidas'
       link_path		'http://localhost:3000/facturas'
-      visible_when	{!current_user.present?}
+      visible_when	{current_user.present?}
       enabled_when	{current_user.present?}
       active_when	{in_action('any').of_controller('facturas')}
+    end
+
+    sucursal_tab do
+      text		'Sucursales'
+      link_path		'http://localhost:3000/sucursals'
+      visible_when	{current_user.present?}
+      enabled_when	{current_user.present?}
+      active_when	{in_action('any').of_controller('sucursals')}
+    end
+
+    signout_tab do
+      text		'Cerrar sesión'
+      link_path		{ destroy_user_session_path }
+      http_verb		:delete
+      visible_when	{current_user.present?}
+      enabled_when	{current_user.present?}
+      active_when	{false}
     end
   end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140624060102) do
+ActiveRecord::Schema.define(:version => 20140625024746) do
 
   create_table "articulos", :force => true do |t|
     t.integer  "user_id"
@@ -19,6 +19,11 @@ ActiveRecord::Schema.define(:version => 20140624060102) do
     t.string   "descripcion"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "articulos_facturas", :id => false, :force => true do |t|
+    t.integer "factura_id"
+    t.integer "articulo_id"
   end
 
   create_table "clientes", :force => true do |t|
@@ -36,11 +41,6 @@ ActiveRecord::Schema.define(:version => 20140624060102) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "factura_articulo", :id => false, :force => true do |t|
-    t.integer "factura_id"
-    t.integer "articulo_id"
-  end
-
   create_table "facturas", :force => true do |t|
     t.integer  "user_id"
     t.integer  "cliente_id"
@@ -53,7 +53,24 @@ ActiveRecord::Schema.define(:version => 20140624060102) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "sucursals", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "alias"
+    t.string   "calle"
+    t.string   "numexterno"
+    t.string   "numinterno"
+    t.string   "colonia"
+    t.string   "codpostal"
+    t.string   "delegacion"
+    t.string   "ciudad"
+    t.string   "estado"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "users", :force => true do |t|
+    t.string   "nombre",                 :default => "", :null => false
+    t.string   "rfc",                    :default => "", :null => false
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"
@@ -66,22 +83,11 @@ ActiveRecord::Schema.define(:version => 20140624060102) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
-    t.string   "nombre"
-    t.string   "calle"
-    t.string   "numexterno"
-    t.string   "numinterno"
-    t.string   "colonia"
-    t.string   "codpostal"
-    t.string   "delegacion"
-    t.string   "ciudad"
-    t.string   "estado"
-    t.string   "rfc"
     t.string   "role"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
-  add_index "users", ["rfc"], :name => "index_users_on_rfc"
 
   create_table "usuario_cliente", :id => false, :force => true do |t|
     t.integer "cliente_id"

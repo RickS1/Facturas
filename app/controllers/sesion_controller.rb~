@@ -1,4 +1,3 @@
-class SesionController < ApplicationController
-  def sesion
-  end
+class SesionController < Devise::SessionsController
+
 end

@@ -10,17 +10,20 @@ gem 'pg'
 
 # Gems used only for assets and not required
 # in production environments by default.
-#gem 'sass-rails',   '~> 3.2.3'
+#gem 'sass-rails'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'coffee-rails', '~> 3.2.1'
 gem 'simple_form'
 gem 'country_select'
 gem 'cancan'
 gem 'tabulous'
-gem 'bootstrap-select-rails'
-gem 'hairtrigger'
-gem "squirm_rails", require: "squirm/rails"
+#gem 'hairtrigger'
+#gem "squirm_rails", require: "squirm/rails"
 gem 'database_cleaner'
+gem 'acts_as_tenant'
+gem 'select2-rails'
+#gem 'chosen-rails'
+#gem 'chosen-sass-bootstrap-rails'
 #gem 'rake-convert', '~> 0.0.4'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes

@@ -1,4 +1,6 @@
 Facturas::Application.routes.draw do
+  resources :sucursals
+
   resources :facturas
 
   resources :clientes

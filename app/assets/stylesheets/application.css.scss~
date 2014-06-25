@@ -1,2 +1,2 @@
 @import "bootstrap";
-@impor "bootstrap-select";
+@import "bootstrap-select.min";
