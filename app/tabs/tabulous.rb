@@ -3,7 +3,7 @@ Tabulous.setup do
   tabs do
     registro_tab do
       text		'Entrar'
-      link_path		'http://localhost:3000/users/sign_up'
+      link_path		'/users/sign_up'
       visible_when	{!current_user.present?}
       enabled_when	{!current_user.present?}
       active_when	{in_action('any').of_controller('registro')}
@@ -11,7 +11,7 @@ Tabulous.setup do
 
     articulo_tab do
       text		'Catálogo de artículos'
-      link_path		'http://localhost:3000/articulos'
+      link_path		'/articulos'
       visible_when	{current_user.present?}
       enabled_when	{current_user.present?}
       active_when	{in_action('any').of_controller('articulos')}
@@ -19,7 +19,7 @@ Tabulous.setup do
 
     sesion_tab do
       text		'Iniciar sesión'
-      link_path		'http://localhost:3000/users/sign_in'
+      link_path		'/users/sign_in'
       visible_when	{!current_user.present?}
       enabled_when	{!current_user.present?}
       active_when	{in_action('any').of_controller('sesion')}
@@ -27,7 +27,7 @@ Tabulous.setup do
 
     cliente_tab do
       text		'Cartera de clientes'
-      link_path		'http://localhost:3000/clientes'
+      link_path		'/clientes'
       visible_when	{current_user.present?}
       enabled_when	{current_user.present?}
       active_when	{in_action('any').of_controller('clientes')}
@@ -35,7 +35,7 @@ Tabulous.setup do
 
     factura_tab do
       text		'Facturas emitidas'
-      link_path		'http://localhost:3000/facturas'
+      link_path		'/facturas'
       visible_when	{current_user.present?}
       enabled_when	{current_user.present?}
       active_when	{in_action('any').of_controller('facturas')}
@@ -43,7 +43,7 @@ Tabulous.setup do
 
     sucursal_tab do
       text		'Sucursales'
-      link_path		'http://localhost:3000/sucursals'
+      link_path		'/sucursals'
       visible_when	{current_user.present?}
       enabled_when	{current_user.present?}
       active_when	{in_action('any').of_controller('sucursals')}
