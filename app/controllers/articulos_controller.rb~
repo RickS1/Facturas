@@ -10,11 +10,6 @@ class ArticulosController < ApplicationController
     end
   end
 
-  def userfind
-    @articulo = Articulo.find(params[:user_id])
-
-  end
-
   # GET /articulos/1
   # GET /articulos/1.json
   def show

@@ -1,7 +1,6 @@
 class SucursalsController < ApplicationController
   # GET /sucursals
   # GET /sucursals.json
-  before_filter :authenticate_user!
   def index
     @sucursals = Sucursal.all
 
