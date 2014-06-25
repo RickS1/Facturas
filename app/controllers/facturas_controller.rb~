@@ -1,6 +1,7 @@
 class FacturasController < ApplicationController
   # GET /facturas
   # GET /facturas.json
+  befor_filter :authenticate_user!
   def index
     @facturas = Factura.all
 
