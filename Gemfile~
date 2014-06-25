@@ -20,7 +20,7 @@ gem 'tabulous'
 #gem 'hairtrigger'
 #gem "squirm_rails", require: "squirm/rails"
 gem 'database_cleaner'
-gem 'acts-as-tenant'
+gem 'acts_as_tenant'
 gem 'select2-rails'
 #gem 'chosen-rails'
 #gem 'chosen-sass-bootstrap-rails'
@@ -51,3 +51,5 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
+ruby '2.0.0'
