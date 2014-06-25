@@ -52,7 +52,7 @@ Tabulous.setup do
     signout_tab do
       text		'Cerrar sesión'
       link_path		{ destroy_user_session_path }
-      http_verb		:delete
+      http_verb		:get
       visible_when	{current_user.present?}
       enabled_when	{current_user.present?}
       active_when	{false}
