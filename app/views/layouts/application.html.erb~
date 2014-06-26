@@ -8,10 +8,11 @@
   <script>
 $(document).ready(function() { $("#e1").select2(); });
   </script>
+  <%= javascript_include_tag :defaults %>
 
 </head>
 <body>
-<nav class="navbar">
+<nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Facturas</a>
       <%= tabs %>

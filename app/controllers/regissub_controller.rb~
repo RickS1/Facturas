@@ -1,0 +1,4 @@
+class RegissubController < Devise::RegistrationsController
+  def regissub
+  end
+end
