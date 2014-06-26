@@ -2,7 +2,7 @@ Tabulous.setup do
 
   tabs do
     registro_tab do
-      text		'Entrar'
+      text		'Registrarse'
       link_path		'/users/sign_up'
       visible_when	{!current_user.present?}
       enabled_when	{!current_user.present?}
@@ -19,6 +19,14 @@ Tabulous.setup do
 
     sesion_tab do
       text		'Iniciar sesión'
+      link_path		'#'
+      visible_when	{!current_user.present?}
+      enabled_when	{!current_user.present?}
+      active_when	{a_subtab_is_active}
+    end
+
+    sesionuser_subtab do
+      text		'Como administrador'
       link_path		'/users/sign_in'
       visible_when	{!current_user.present?}
       enabled_when	{!current_user.present?}
