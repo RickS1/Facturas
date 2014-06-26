@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Alias:</b>
+  <%= @subcuentum.alias %>
+</p>
+
+<p>
+  <b>Password:</b>
+  <%= @subcuentum.password %>
+</p>
+
+<p>
+  <b>Password confirm:</b>
+  <%= @subcuentum.password_confirm %>
+</p>
+
+
+<%= link_to 'Edit', edit_subcuentum_path(@subcuentum) %> |
+<%= link_to 'Back', subcuenta_path %>

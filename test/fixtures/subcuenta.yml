@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  alias: MyString
+  password: MyString
+  password_confirm: MyString
+
+two:
+  alias: MyString
+  password: MyString
+  password_confirm: MyString

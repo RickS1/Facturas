@@ -5,14 +5,14 @@
 <div>
      <%= f.input :nombre, :required => true, :autofocus => true, :placeholder => 'Su nombre', :label => "Nombre", :hint => 'Nombre registrado ante el SAT' %>
      <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
-     <%= f.input :rfc, :required => true, :autofocus => true, :label => "RFC", :hint => 'RFC de contribuyente' %>
+     <%= f.input :rfc, :required => true, :autofocus => true, :label => "RFC", :hint => 'RFC de contribuyente', :input_html => {:maxlength => 16} %>
      <%= f.input :email, :required => true, :autofocus => true, :placeholder => 'algo123@dominio.com', :label => "Correo electrónico" %>
 </div>
 <div>
-    <%= f.input :password, :required => true, :hint => 'Ingrese una contraseña.', :label => 'Contraseña', :hint => '8 - 15 caracteres' %>
+    <%= f.input :password, :required => true, :hint => 'Ingrese una contraseña.', :label => 'Contraseña', :hint => '8 - 15 caracteres',:input_html => {:maxlength => 15} %>
 </div>
 <div>
-    <%= f.input :password_confirmation, :required => true, :label => 'Confirmar contraseña' %>
+    <%= f.input :password_confirmation, :required => true, :label => 'Confirmar contraseña', :input_html => {:maxlength => 16} %>
 </div>
 
   <div class="form-actions">

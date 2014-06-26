@@ -49,6 +49,14 @@ Tabulous.setup do
       active_when	{in_action('any').of_controller('sucursals')}
     end
 
+    subcuenta_tab do
+      text		'Añadir subcuenta'
+      link_path		'/subcuenta'
+      visible_when	{current_user.present?}
+      enabled_when	{current_user.present?}
+      active_when	{in_action('any').of_controller('subcuenta')}
+    end
+
     signout_tab do
       text		'Cerrar sesión'
       link_path		{ destroy_user_session_path }

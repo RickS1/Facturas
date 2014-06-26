@@ -1,14 +1,14 @@
 <h1>Listing sucursals</h1>
 
-<table>
+<table class="table table-hover">
   <tr>
     <th>Alias</th>
     <th>Calle</th>
-    <th>Numexterno</th>
-    <th>Numinterno</th>
+    <th>Número exterior</th>
+    <th>Número interior</th>
     <th>Colonia</th>
-    <th>Codpostal</th>
-    <th>Delegacion</th>
+    <th>Código postal</th>
+    <th>Delegación/Municipio</th>
     <th>Ciudad</th>
     <th>Estado</th>
     <th></th>
@@ -27,13 +27,13 @@
     <td><%= sucursal.delegacion %></td>
     <td><%= sucursal.ciudad %></td>
     <td><%= sucursal.estado %></td>
-    <td><%= link_to 'Show', sucursal %></td>
-    <td><%= link_to 'Edit', edit_sucursal_path(sucursal) %></td>
-    <td><%= link_to 'Destroy', sucursal, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Mostrar', sucursal %></td>
+    <td><%= link_to 'Editar', edit_sucursal_path(sucursal) %></td>
+    <td><%= link_to 'Eliminar', sucursal, confirm: '¿Está seguro(a)?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Sucursal', new_sucursal_path %>
+<%= link_to 'Añadir sucursal', new_sucursal_path %>
