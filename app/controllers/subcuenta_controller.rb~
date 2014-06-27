@@ -1,4 +1,4 @@
-class SubcuentaController < ApplicationController
+class SubcuentaController < Devise::RegistrationsController
   # GET /subcuenta
   # GET /subcuenta.json
   def index
@@ -44,7 +44,7 @@ class SubcuentaController < ApplicationController
 
     respond_to do |format|
       if @subcuentum.save
-        format.html { redirect_to @subcuentum, notice: 'Subcuentum was successfully created.' }
+        format.html { redirect_to @subcuentum, notice: 'Subcuenta creada con éxito.' }
         format.json { render json: @subcuentum, status: :created, location: @subcuentum }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class SubcuentaController < ApplicationController
 
     respond_to do |format|
       if @subcuentum.update_attributes(params[:subcuentum])
-        format.html { redirect_to @subcuentum, notice: 'Subcuentum was successfully updated.' }
+        format.html { redirect_to @subcuentum, notice: 'Subcuenta modificada con éxito.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -79,5 +79,12 @@ class SubcuentaController < ApplicationController
       format.html { redirect_to subcuenta_url }
       format.json { head :no_content }
     end
+  end
+
+  protected
+
+  def sign_up_params
+     params.require(:subcuentum).permit(:alias, :rfc, :password, 
+:password_confirm)
   end
 end

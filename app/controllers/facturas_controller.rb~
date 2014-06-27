@@ -1,7 +1,7 @@
 class FacturasController < ApplicationController
   # GET /facturas
   # GET /facturas.json
-  befor_filter :authenticate_user!
+ #if current_user.present? or current_subcuentum.present?
   def index
     @facturas = Factura.all
 

@@ -2,7 +2,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :articulos, collection: User.find(1).articulos, include_blank: false %>
+    <%= f.association :articulos, collection: User.find(current_user.id).articulos, include_blank: false %>
     <%= f.input :precio_u, :label => 'Precio unitario' %>
     <%= f.input :cantidad, :label => 'Cantidad de artículos' %>
   </div>

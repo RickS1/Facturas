@@ -1,9 +1,10 @@
 class ArticulosController < ApplicationController
   # GET /articulos
   # GET /articulos.json
-  before_filter :authenticate_user!
+  before_filter :authenticate_user! 
   def index
     @articulos = Articulo.all
+    @articulos = current_user.articulos
 
     respond_to do |format|
       format.html # index.html.erb
@@ -26,7 +27,7 @@ class ArticulosController < ApplicationController
   # GET /articulos/new.json
   def new
     @articulo = Articulo.new
-
+    @articulo = current_user.articulos.build
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @articulo }
@@ -42,7 +43,7 @@ class ArticulosController < ApplicationController
   # POST /articulos.json
   def create
     @articulo = Articulo.new(params[:articulo])
-
+    @articulo.user_id = current_user.id 
     respond_to do |format|
       if @articulo.save
         format.html { redirect_to @articulo, notice: 'Articulo was successfully created.' }

@@ -1,7 +1,7 @@
 class ClientesController < ApplicationController
   # GET /clientes
   # GET /clientes.json
-  before_filter :authenticate_user!
+  before_filter {:authenticate_user! || :authenticate_subcuentum! }
   def index
     @clientes = Cliente.all
 

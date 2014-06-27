@@ -17,7 +17,6 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :clientes
   has_many :facturas
   has_many :sucursales, dependent: :destroy
-  has_many :subcuenta, dependent: :destroy
 
   ROLES = %w[fisico moral]
 end

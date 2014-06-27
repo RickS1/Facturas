@@ -1,6 +1,4 @@
 Facturas::Application.routes.draw do
-  resources :subcuenta
-
   resources :sucursals
 
   resources :facturas
@@ -17,13 +15,6 @@ Facturas::Application.routes.draw do
 
   devise_for :users, :controllers => { registrations: 'registro', sessions: 'sesion' }
 
-  devise_for :subusers, :controllers => { sessions: 'subusers/sessions' }, :skip => [:sessions]
-  as :subuser do
-    get 'subusers/sign_in' => 'subusers/sessions#new', :as => :new_subuser_session
-    post 'subusers/sign_in' => 'subusers/sessions#create', :as => :subuser_session
-    match 'subusers/sign_out' => 'devise/sessions#destroy', :as => :destroy_subuser_session,
-      :via => Devise.mappings[:subuser].sign_out_via
-  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

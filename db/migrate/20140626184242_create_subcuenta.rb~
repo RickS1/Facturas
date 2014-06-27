@@ -2,9 +2,15 @@ class CreateSubcuenta < ActiveRecord::Migration
   def change
     create_table :subcuenta do |t|
       t.belongs_to :user
+      t.recoverable
+      t.rememberable
+      t.trackable
+      t.timestamps
+      t.string :email, :null => true, :default => "123@hotmail.com"
       t.string :alias
-      t.string :password
+      t.string :rfc
       t.string :password_confirm
+      t.string :encrypted_password, :null => false, :default => ""
 
       t.timestamps
     end

@@ -1,7 +1,8 @@
 class Subcuentum < ActiveRecord::Base
-  devise :database_authenticatable, :validatable 
+  devise :database_authenticatable,:registerable,
+         :recoverable, :rememberable, :trackable, :validatable 
 
-  attr_accesible :alias, :rfc, :password, :password_confirmation, 
+  attr_accessible :alias, :rfc, :password, :password_confirm, 
 :tags_attributes
   belongs_to :user
 end
