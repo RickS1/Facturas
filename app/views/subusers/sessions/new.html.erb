@@ -5,7 +5,6 @@
         <%= f.input :rfc, :required => true, :autofocus => true, :label => 'RFC' %>
     <%= f.input :alias, :required => true, :autofocus => true, :label => 'Alias de la cuenta', :hint => 'Debe proporcionarlo el administrador' %>
     <%= f.input :password, :required => true, :label => 'Contraseña', :hint => 'Proporcionada por el administrador' %>
-    <%= f.input :password_confirmation, :required => true %>
     <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
   </div>
 
