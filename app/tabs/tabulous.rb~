@@ -19,7 +19,7 @@ Tabulous.setup do
 
     sesion_tab do
       text		'Iniciar sesión'
-      link_path		'#'
+      link_path		'/users/sign_in'
       visible_when	{!current_user.present?}
       enabled_when	{!current_user.present?}
       active_when	{a_subtab_is_active}
@@ -28,9 +28,17 @@ Tabulous.setup do
     sesionuser_subtab do
       text		'Como administrador'
       link_path		'/users/sign_in'
-      visible_when	{!current_user.present?}
-      enabled_when	{!current_user.present?}
+      visible_when	{true}
+      enabled_when	{true}
       active_when	{in_action('any').of_controller('sesion')}
+    end
+
+    sesionsubuser_subtab do
+      text		'Como cuenta asociada'
+      link_path		'/subusers/sign_in'
+      visible_when	{true}
+      enabled_when	{true}
+      active_when	{in_action('any').of_controller('subuser/sessions')}
     end
 
     cliente_tab do

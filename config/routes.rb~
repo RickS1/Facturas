@@ -1,7 +1,15 @@
 Facturas::Application.routes.draw do
-  get "sesion/sesion"
+  resources :subcuenta
+
+  resources :sucursals
+
+  resources :facturas
+
+  resources :clientes
 
   resources :articulos
+
+  get "sesion/sesion"
 
   get "registro/registro"
 
@@ -9,6 +17,13 @@ Facturas::Application.routes.draw do
 
   devise_for :users, :controllers => { registrations: 'registro', sessions: 'sesion' }
 
+  devise_for :subusers, :controllers => { sessions: 'subusers/sessions' }, :skip => [:sessions]
+  as :subusers do
+    get 'subusers/sign_in' => 'subusers/sessions#new', :as => :new_subuser_session
+    post 'subusers/sign_in' => 'subusers/sessions#create', :as => :subuser_session
+    match 'subusers/sign_out' => 'devise/sessions#destroy', :as => :destroy_subuser_session,
+      :via => Devise.mappings[:subuser].sign_out_via
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -58,7 +73,7 @@ Facturas::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'inicio/index'
+  root :to => 'inicio#index'
 
   # See how all your routes lay out with "rake routes"
 

@@ -23,7 +23,7 @@ gem 'database_cleaner'
 gem 'acts_as_tenant'
 gem 'select2-rails'
 #gem 'chosen-rails'
-#gem 'chosen-sass-bootstrap-rails'
+gem 'chosen-sass-bootstrap-rails'
 #gem 'rake-convert', '~> 0.0.4'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -44,7 +44,7 @@ gem 'jquery-rails'
 # gem 'jbuilder'
 
 # Use unicorn as the web server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'capistrano'

@@ -1,4 +1,4 @@
-class Subusers::SessionsController < Devise::SessionsController
+class Subusers::SessionsController < Devise::SessionsController 
 
   # GET /resource/sign_in
   def new
@@ -27,7 +27,7 @@ class Subusers::SessionsController < Devise::SessionsController
   protected
 
   def sign_in_params
-    params.require(:subcuenta).permit(:alias, :rfc, :password, 
+    params.require(:subcuentum).permit(:alias, :rfc, :password, 
 :password_confirmation)
   end
 

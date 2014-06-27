@@ -3,11 +3,11 @@ class CreateFacturas < ActiveRecord::Migration
     create_table :facturas do |t|
       t.belongs_to :user
       t.belongs_to :cliente
-      t.decimal :precio_u
-      t.integer :cantidad
-      t.decimal :subtotal
-      t.decimal :iva
-      t.decimal :total
+      t.decimal :precio_u, :precision => 25, :scale => 2
+      t.decimal :cantidad, :precision => 25, :scale => 2
+      t.decimal :subtotal, :precision => 25, :scale => 2
+      t.decimal :iva, :precision => 25, :scale => 2
+      t.decimal :total, :precision => 25, :scale => 2
 
       t.timestamps
     end

@@ -33,6 +33,14 @@ Tabulous.setup do
       active_when	{in_action('any').of_controller('sesion')}
     end
 
+    sesionsubuser_subtab do
+      text		'Como cuenta asociada'
+      link_path		'/subusers/sign_in'
+      visible_when	{true}
+      enabled_when	{true}
+      active_when	{in_action('any').of_controller('subusers/sessions')}
+    end
+
     cliente_tab do
       text		'Cartera de clientes'
       link_path		'/clientes'

@@ -2,9 +2,10 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :alias %>
-    <%= f.input :password %>
-    <%= f.input :password_confirm %>
+    <%= f.input :alias, :required => true, :hint => 'Proporcionado por el administrador', :label => 'Alias' %>
+    <%= f.input :rfc, :required => true, :label => 'RFC', :placeholder => 'De la empresa'%>
+    <%= f.input :password, :required => true, :label => 'Contraseña', :hint => 'Proporcionada por el administrador' %>
+    <%= f.input :password_confirm, :required => true, :label => 'Confirmar contraseña' %>
   </div>
 
   <div class="form-actions">

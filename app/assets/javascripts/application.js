@@ -13,3 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require select2
+//= require select2_locale_"es"

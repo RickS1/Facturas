@@ -1,4 +1,4 @@
-<%- if controller_name != 'sesion' %>
+<%- if controller_name != 'sessions' %>
   <%= link_to "Iniciar sesión", new_session_path(resource_name) %><br />
 <% end -%>
 
