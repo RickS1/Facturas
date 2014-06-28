@@ -85,6 +85,7 @@ GEM
     mime-types (1.25.1)
     multi_json (1.10.1)
     orm_adapter (0.5.0)
+    pdfkit (0.6.2)
     pg (0.17.1)
     polyglot (0.3.5)
     rack (1.4.5)
@@ -146,6 +147,7 @@ GEM
       raindrops (~> 0.7)
     warden (1.2.3)
       rack (>= 1.0)
+    wkhtmltopdf-binary (0.9.9.3)
 
 PLATFORMS
   ruby
@@ -159,6 +161,7 @@ DEPENDENCIES
   database_cleaner
   devise
   jquery-rails
+  pdfkit
   pg
   rails (= 3.2.1)
   sass-rails!
@@ -169,3 +172,4 @@ DEPENDENCIES
   tabulous
   uglifier (>= 1.0.3)
   unicorn
+  wkhtmltopdf-binary

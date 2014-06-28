@@ -1,0 +1,39 @@
+<h1>Sucursales</h1>
+
+<table class="table table-hover">
+  <tr>
+    <th>Alias</th>
+    <th>Calle</th>
+    <th>Número exterior</th>
+    <th>Número interior</th>
+    <th>Colonia</th>
+    <th>Código postal</th>
+    <th>Delegación/Municipio</th>
+    <th>Ciudad</th>
+    <th>Estado</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sucursals.each do |sucursal| %>
+  <tr>
+    <td><%= sucursal.alias %></td>
+    <td><%= sucursal.calle %></td>
+    <td><%= sucursal.numexterno %></td>
+    <td><%= sucursal.numinterno %></td>
+    <td><%= sucursal.colonia %></td>
+    <td><%= sucursal.codpostal %></td>
+    <td><%= sucursal.delegacion %></td>
+    <td><%= sucursal.ciudad %></td>
+    <td><%= sucursal.estado %></td>
+    <td><%= link_to 'Mostrar', sucursal %></td>
+    <td><%= link_to 'Editar', edit_sucursal_path(sucursal) %></td>
+    <td><%= link_to 'Eliminar', sucursal, confirm: '¿Está seguro(a)?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Añadir sucursal', new_sucursal_path %>

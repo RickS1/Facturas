@@ -22,7 +22,7 @@ Tabulous.setup do
       link_path		'/users/sign_in'
       visible_when	{!current_user.present?}
       enabled_when	{!current_user.present?}
-      active_when	{in_action('any').of_controller('users')}
+      active_when	{in_action('any').of_controller('sesion')}
     end
 
     cliente_tab do
