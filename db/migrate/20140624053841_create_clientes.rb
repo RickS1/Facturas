@@ -1,6 +1,7 @@
 class CreateClientes < ActiveRecord::Migration
   def change
     create_table :clientes do |t|
+      t.belongs_to :user
       t.string :nombre
       t.string :rfc
       t.string :calle
@@ -15,9 +16,9 @@ class CreateClientes < ActiveRecord::Migration
       t.timestamps
     end
 
-    create_table :clientes_users, id: false do |t|
-      t.belongs_to :cliente
-      t.belongs_to :user
-    end
+    #create_table :clientes_users, id: false do |t|
+    #  t.belongs_to :cliente
+    #  t.belongs_to :user
+    #end
   end
 end

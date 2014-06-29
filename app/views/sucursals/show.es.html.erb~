@@ -2,7 +2,7 @@
 
 <p>
   <b>Alias:</b>
-  <%= @sucursal.pseudonimo %>
+  <%= @sucursal.alias %>
 </p>
 
 <p>

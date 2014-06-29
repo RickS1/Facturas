@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20140625024746) do
   end
 
   create_table "clientes", :force => true do |t|
+    t.integer  "user_id"
     t.string   "nombre"
     t.string   "rfc"
     t.string   "calle"
@@ -41,26 +42,22 @@ ActiveRecord::Schema.define(:version => 20140625024746) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "clientes_users", :id => false, :force => true do |t|
-    t.integer "cliente_id"
-    t.integer "user_id"
-  end
-
   create_table "facturas", :force => true do |t|
     t.integer  "user_id"
     t.integer  "cliente_id"
-    t.decimal  "precio_u",   :precision => 25, :scale => 2
-    t.decimal  "cantidad",   :precision => 25, :scale => 2
-    t.decimal  "subtotal",   :precision => 25, :scale => 2
-    t.decimal  "iva",        :precision => 25, :scale => 2
-    t.decimal  "total",      :precision => 25, :scale => 2
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
+    t.integer  "sucursal_id"
+    t.decimal  "precio_u",    :precision => 25, :scale => 2
+    t.decimal  "cantidad",    :precision => 25, :scale => 2
+    t.decimal  "subtotal",    :precision => 25, :scale => 2
+    t.decimal  "iva",         :precision => 25, :scale => 2
+    t.decimal  "total",       :precision => 25, :scale => 2
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
   end
 
   create_table "sucursals", :force => true do |t|
     t.integer  "user_id"
-    t.string   "alias"
+    t.string   "pseudonimo"
     t.string   "calle"
     t.string   "numexterno"
     t.string   "numinterno"

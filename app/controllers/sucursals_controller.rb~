@@ -4,7 +4,7 @@ class SucursalsController < ApplicationController
   before_filter :authenticate_user!
   def index
     @sucursals = Sucursal.all
-    #@sucursals = current_user.sucursals
+    @sucursals = current_user.sucursals
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @sucursals }

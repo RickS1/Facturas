@@ -1,4 +1,10 @@
 class Cliente < ActiveRecord::Base
-  has_and_belongs_to_many :users
+  belongs_to :user
   has_many :facturas
+
+  attr_accessible :nombre, :rfc, :calle, :numexterno, :numinterno, :colonia, :codpostal, :delegacion, :ciudad, :estado
+  
+  def to_label
+    "#{nombre}"
+  end
 end

@@ -26,6 +26,7 @@ class ClientesController < ApplicationController
   # GET /clientes/new.json
   def new
     @cliente = Cliente.new
+    @cliente = current_user.clientes.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -42,10 +43,11 @@ class ClientesController < ApplicationController
   # POST /clientes.json
   def create
     @cliente = Cliente.new(params[:cliente])
+    @cliente.user_id = current_user.id
 
     respond_to do |format|
       if @cliente.save
-        format.html { redirect_to @cliente, notice: 'Cliente was successfully created.' }
+        format.html { redirect_to @cliente, notice: 'Cliente añadido exitosamente.' }
         format.json { render json: @cliente, status: :created, location: @cliente }
       else
         format.html { render action: "new" }
@@ -61,7 +63,7 @@ class ClientesController < ApplicationController
 
     respond_to do |format|
       if @cliente.update_attributes(params[:cliente])
-        format.html { redirect_to @cliente, notice: 'Cliente was successfully updated.' }
+        format.html { redirect_to @cliente, notice: 'Cliente modificado con éxito.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

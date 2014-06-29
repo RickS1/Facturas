@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   validates_presence_of :role
 
   has_many :articulos, dependent: :destroy
-  has_and_belongs_to_many :clientes
+  has_many :clientes, dependent: :destroy
   has_many :facturas
   has_many :sucursals, dependent: :destroy
 
