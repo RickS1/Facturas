@@ -26,7 +26,7 @@ class FacturasController < ApplicationController
   # GET /facturas/new.json
   def new
     @factura = Factura.new
-
+    @factura.user_id = current_user.id
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @factura }
