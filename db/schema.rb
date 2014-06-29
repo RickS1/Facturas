@@ -41,6 +41,11 @@ ActiveRecord::Schema.define(:version => 20140625024746) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "clientes_users", :id => false, :force => true do |t|
+    t.integer "cliente_id"
+    t.integer "user_id"
+  end
+
   create_table "facturas", :force => true do |t|
     t.integer  "user_id"
     t.integer  "cliente_id"
@@ -88,10 +93,5 @@ ActiveRecord::Schema.define(:version => 20140625024746) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
-
-  create_table "usuario_cliente", :id => false, :force => true do |t|
-    t.integer "cliente_id"
-    t.integer "user_id"
-  end
 
 end

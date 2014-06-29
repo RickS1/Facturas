@@ -1,10 +1,10 @@
 class ClientesController < ApplicationController
   # GET /clientes
   # GET /clientes.json
-  before_filter {:authenticate_user! || :authenticate_subcuentum! }
+  before_filter :authenticate_user!
   def index
     @clientes = Cliente.all
-
+    @clientes = current_user.clientes
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @clientes }
@@ -15,7 +15,7 @@ class ClientesController < ApplicationController
   # GET /clientes/1.json
   def show
     @cliente = Cliente.find(params[:id])
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @cliente }

@@ -15,7 +15,7 @@ class CreateClientes < ActiveRecord::Migration
       t.timestamps
     end
 
-    create_table :usuario_cliente, id: false do |t|
+    create_table :clientes_users, id: false do |t|
       t.belongs_to :cliente
       t.belongs_to :user
     end

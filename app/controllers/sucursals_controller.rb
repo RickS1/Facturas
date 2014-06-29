@@ -4,7 +4,7 @@ class SucursalsController < ApplicationController
   before_filter :authenticate_user!
   def index
     @sucursals = Sucursal.all
-
+    @sucursals = current_user.sucursals
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @sucursals }
@@ -26,7 +26,7 @@ class SucursalsController < ApplicationController
   # GET /sucursals/new.json
   def new
     @sucursal = Sucursal.new
-
+    @sucursal = current_user.sucursals.build
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @sucursal }
@@ -42,6 +42,7 @@ class SucursalsController < ApplicationController
   # POST /sucursals.json
   def create
     @sucursal = Sucursal.new(params[:sucursal])
+    @sucursal.user_id = current_user.id
 
     respond_to do |format|
       if @sucursal.save
