@@ -4,6 +4,7 @@ class FacturasController < ApplicationController
   before_filter :authenticate_user!
   def index
     @facturas = Factura.all
+    @facturas = current_user.facturas
 
     respond_to do |format|
       format.html # index.html.erb
@@ -42,6 +43,7 @@ class FacturasController < ApplicationController
   # POST /facturas.json
   def create
     @factura = Factura.new(params[:factura])
+    @factura.user_id = current_user.id
 
     respond_to do |format|
       if @factura.save
