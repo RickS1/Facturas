@@ -27,7 +27,8 @@ class FacturasController < ApplicationController
   # GET /facturas/new.json
   def new
     @factura = Factura.new
-    @factura.user_id = current_user.id
+    @factura = current_user.facturas.build
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @factura }
@@ -44,6 +45,8 @@ class FacturasController < ApplicationController
   def create
     @factura = Factura.new(params[:factura])
     @factura.user_id = current_user.id
+    current_user.folio= current_user.folio + 1
+    @factura.folio = current_user.folio.to_s
 
     respond_to do |format|
       if @factura.save

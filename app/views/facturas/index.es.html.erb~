@@ -2,7 +2,7 @@
 
 <table class="table table-hover">
   <tr>
-    <th>Folio</th>
+    <th>Factura</th>
     <th>Subtotal</th>
     <th>Iva</th>
     <th>Total</th>
@@ -13,7 +13,7 @@
 
 <% @facturas.each do |factura| %>
   <tr>
-    <td><%= factura.folio %></td>
+    <td><%= factura.id %></td>
     <td><%= factura.subtotal %></td>
     <td><%= factura.iva %></td>
     <td><%= factura.total %></td>
