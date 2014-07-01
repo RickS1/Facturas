@@ -1,0 +1,6 @@
+<h1>Editing articulos_factura</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @articulos_factura %> |
+<%= link_to 'Back', articulos_facturas_path %>

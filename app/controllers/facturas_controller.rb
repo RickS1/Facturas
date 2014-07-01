@@ -45,8 +45,13 @@ class FacturasController < ApplicationController
   def create
     @factura = Factura.new(params[:factura])
     @factura.user_id = current_user.id
-    current_user.folio= current_user.folio + 1
+    current_user.folio = current_user.folio + 1
+    current_user.save
     @factura.folio = current_user.folio.to_s
+    @articulos = ArticulosFactura.where(:ip_cliente => current_user.current_sign_in_ip)
+    @articulos.each do |articulo|
+      articulo.destroy
+    end
 
     respond_to do |format|
       if @factura.save

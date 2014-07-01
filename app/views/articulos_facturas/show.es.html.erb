@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Precio u:</b>
+  <%= @articulos_factura.precio_u %>
+</p>
+
+<p>
+  <b>Cantidad:</b>
+  <%= @articulos_factura.cantidad %>
+</p>
+
+<p>
+  <b>Subtotal:</b>
+  <%= @articulos_factura.subtotal %>
+</p>
+
+<p>
+  <b>Iva:</b>
+  <%= @articulos_factura.iva %>
+</p>
+
+
+<%= link_to 'Edit', edit_articulos_factura_path(@articulos_factura) %> |
+<%= link_to 'Back', articulos_facturas_path %>

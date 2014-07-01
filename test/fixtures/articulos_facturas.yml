@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  precio_u: 9.99
+  cantidad: 9.99
+  subtotal: 9.99
+  iva: 9.99
+
+two:
+  precio_u: 9.99
+  cantidad: 9.99
+  subtotal: 9.99
+  iva: 9.99

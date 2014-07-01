@@ -34,7 +34,23 @@ Tabulous.setup do
     end
 
     factura_tab do
-      text		'Facturas emitidas'
+      text		'Facturas'
+      link_path		'#'
+      visible_when	{current_user.present?}
+      enabled_when	{current_user.present?}
+      active_when	{a_subtab_is_active}
+    end
+
+    emitir_subtab do
+      text		'Emitir factura'
+      link_path		'/articulos_facturas'
+      visible_when	{current_user.present?}
+      enabled_when	{current_user.present?}
+      active_when	{in_action('any').of_controller('articulos_facturas')}
+    end
+
+    mostrar_subtab do
+      text		'Facturas expedidas'
       link_path		'/facturas'
       visible_when	{current_user.present?}
       enabled_when	{current_user.present?}

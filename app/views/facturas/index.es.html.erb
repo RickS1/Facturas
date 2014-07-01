@@ -14,14 +14,10 @@
 <% @facturas.each do |factura| %>
   <tr>
     <td><%= factura.folio %></td>
-    <td><%= factura.subtotal %></td>
-    <td><%= factura.iva %></td>
-    <td><%= factura.total %></td>
+
     <td><%= link_to 'Mostrar', factura %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'Emitir factura', new_factura_path %>

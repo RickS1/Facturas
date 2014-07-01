@@ -1,0 +1,5 @@
+<h1>Expedir factura</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Regresar', new_articulos_facturas_path %>

@@ -5,6 +5,7 @@ class ArticulosController < ApplicationController
   def index
     @articulos = Articulo.all
     @articulos = current_user.articulos
+    #@articulos= articulos.shift
 
     respond_to do |format|
       format.html # index.html.erb

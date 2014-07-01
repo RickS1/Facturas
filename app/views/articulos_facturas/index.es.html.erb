@@ -1,0 +1,38 @@
+<h1>Añadir artículos a la factura</h1>
+<div style="display: none">
+<%= i = 0 %>
+</div>
+
+<table class="table table-hover">
+  <tr>
+    <th>Artículo</th>
+    <th>Precio unitario</th>
+    <th>Cantidad</th>
+    <th>Subtotal</th>
+    <th>Iva</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @articulos_facturas.each do |articulos_factura| %>
+  <tr>
+    <td> <%= @articulos[i].nombre %></td>
+    <td><%= articulos_factura.precio_u %></td>
+    <td><%= articulos_factura.cantidad %></td>
+    <td><%= articulos_factura.subtotal %></td>
+    <td><%= articulos_factura.iva %></td>
+    <td><%= link_to 'Editar', edit_articulos_factura_path(articulos_factura) %></td>
+    <td><%= link_to 'Eliminar', articulos_factura, confirm: '¿Está seguro(a)?', method: :delete %></td>
+  </tr>
+<div style="display: none">
+<%= i = i + 1 %>
+</div>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Añadir artículo', new_articulos_factura_path %>
+<%= link_to 'Continuar trámite', new_factura_path %>
+

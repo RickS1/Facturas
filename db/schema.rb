@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140625024746) do
+ActiveRecord::Schema.define(:version => 20140630214521) do
 
   create_table "articulos", :force => true do |t|
     t.integer  "user_id"
@@ -21,9 +21,16 @@ ActiveRecord::Schema.define(:version => 20140625024746) do
     t.datetime "updated_at",  :null => false
   end
 
-  create_table "articulos_facturas", :id => false, :force => true do |t|
-    t.integer "factura_id"
-    t.integer "articulo_id"
+  create_table "articulos_facturas", :force => true do |t|
+    t.integer  "articulo_id"
+    t.integer  "factura_id"
+    t.decimal  "precio_u",    :precision => 25, :scale => 2
+    t.decimal  "cantidad"
+    t.decimal  "subtotal",    :precision => 25, :scale => 2
+    t.decimal  "iva",         :precision => 25, :scale => 2
+    t.string   "ip_cliente"
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
   end
 
   create_table "clientes", :force => true do |t|
@@ -46,12 +53,9 @@ ActiveRecord::Schema.define(:version => 20140625024746) do
     t.integer  "user_id"
     t.integer  "cliente_id"
     t.integer  "sucursal_id"
-    t.decimal  "precio_u",    :precision => 25, :scale => 2
-    t.decimal  "cantidad",    :precision => 25, :scale => 2
-    t.decimal  "subtotal",    :precision => 25, :scale => 2
-    t.decimal  "iva",         :precision => 25, :scale => 2
     t.decimal  "total",       :precision => 25, :scale => 2
     t.string   "folio"
+    t.binary   "pdf"
     t.datetime "created_at",                                 :null => false
     t.datetime "updated_at",                                 :null => false
   end

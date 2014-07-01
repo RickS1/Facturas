@@ -1,0 +1,2 @@
+module ArticulosFacturasHelper
+end

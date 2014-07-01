@@ -2,7 +2,7 @@
 
 <table class="table table-hover">
   <tr>
-    <th>Factura</th>
+    <th>Folio</th>
     <th>Subtotal</th>
     <th>Iva</th>
     <th>Total</th>
@@ -13,10 +13,8 @@
 
 <% @facturas.each do |factura| %>
   <tr>
-    <td><%= factura.id %></td>
-    <td><%= factura.subtotal %></td>
-    <td><%= factura.iva %></td>
-    <td><%= factura.total %></td>
+    <td><%= factura.folio %></td>
+
     <td><%= link_to 'Mostrar', factura %></td>
   </tr>
 <% end %>

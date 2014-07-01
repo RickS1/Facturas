@@ -4,19 +4,12 @@ class CreateFacturas < ActiveRecord::Migration
       t.belongs_to :user
       t.belongs_to :cliente
       t.belongs_to :sucursal
-      t.decimal :precio_u, :precision => 25, :scale => 2
-      t.decimal :cantidad, :precision => 25, :scale => 2
-      t.decimal :subtotal, :precision => 25, :scale => 2
-      t.decimal :iva, :precision => 25, :scale => 2
       t.decimal :total, :precision => 25, :scale => 2
       t.string :folio
+      t.binary :pdf
 
       t.timestamps
     end
 
-    create_table :articulos_facturas, id: false do |t|
-      t.belongs_to :factura
-      t.belongs_to :articulo
-    end
   end
 end

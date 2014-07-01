@@ -1,0 +1,5 @@
+class ArticulosFactura < ActiveRecord::Base
+
+   belongs_to :articulo
+   blongs_to :factura
+end
