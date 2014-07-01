@@ -44,7 +44,7 @@ class ArticulosFacturasController < ApplicationController
   # POST /articulos_facturas.json
   def create
     @articulos_factura = ArticulosFactura.new(params[:articulos_factura])
-    @articulos_factura.ip_cliente = current_user.current_sign_in_ip
+    @articulos_factura.ip_cliente = request.remote_ip
 
     respond_to do |format|
       if @articulos_factura.save
