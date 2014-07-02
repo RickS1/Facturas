@@ -2,7 +2,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :alias, :required => true, :placeholder => 'Referencia a la sucursal', :label => 'Alias', :hint => 'Nombre que aparecerá al facturar para seleccionar sucursal' %>
+    <%= f.input :pseudonimo, :required => true, :placeholder => 'Referencia a la sucursal', :label => 'Alias', :hint => 'Nombre que aparecerá al facturar para seleccionar sucursal' %>
     <%= f.input :calle, :required => true, :label => 'Calle' %>
     <%= f.input :numexterno, :required => true, :label => 'Número exterior' %>
     <%= f.input :numinterno, :required => true, :label => 'Número interior', :hint => 'De existir' %>
@@ -11,6 +11,7 @@
     <%= f.input :delegacion, :required => true, :label => 'Delegación/Municipio' %>
     <%= f.input :ciudad, :required => true, :label => 'Ciudad' %>
     <%= f.input :estado, :required => true, :label => 'Estado' %>
+    <%= f.input :telefono, :required => true, :label => 'Teléfono', :hint => 'Sin espacios, ni caracteres especiales, incluyendo clave LADA' %>
   </div>
 
   <div class="form-actions">

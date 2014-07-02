@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Facturas</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <%= javascript_include_tag :defaults %>
+
+</head>
+<body>
+  <div class="container">
+  <header>
+    <div class="emblema"><img src="http://designreviver.com/wp-content/uploads/2009/11/LOGO1.gif" id="logo" alt=""></div>
+    <div class="datos">
+    <h1><%= current_user.empresa %></h1>
+    <p class="letra">Dirección de la empresa <br>55-55555555 <br><%= current_user.email %><br>México</p>
+    </div>
+      </div>
+
+<div style="display: none">
+<%= i = 0 %>
+</div>
+      
+      
+    </header>
+    <table class="tabla">
+      <tr>
+  <td >Direccion: <br>Nombre: <br> RFC:</td>
+
+  
+</tr>
+    </table>
+    <table class="table table-hover">
+      
+
+<tr>
+  <th>Cant.</th> 
+  <th>Concepto</th>
+  <th>Precio</th>
+  <th>Iva</th>
+  <th>Neto</th>
+  
+</tr>
+<% @articulos_facturas.each do |articulo| %>
+<tr>
+   <td><%= articulo.cantidad %></td> 
+  <td><%= @articulos[i].nombre %></td>
+  <td><%= articulo.precio_u*articulo.cantidad %></td>
+  <td><%= articulo.precio_u*articulo.cantidad*0.16 %></td>
+  <td><%= articulo.precio_u*articulo.cantidad*1.16 %></td>
+</tr>
+<div style="display: none">
+<%= i = i + 1 %>
+</div>
+<% end %>
+    </table>
+    <table class="tabla">
+      <tr>
+        <td class="tabla letra2 alto2">Precio $0000 <br><br><br>Subtotal $000000 <br><br><br>Total $00000</td>
+      </tr>
+      <tr>
+        <td class="tabla alto2"><img src="http://joselspovi.files.wordpress.com/2013/12/codigo-qr.jpg" width="200px" alt=""> *AQUI VA LA CADENA!*</td>
+      </tr>
+    </table>
+  </div>
+</body>
+   
+  
+  </html>
+

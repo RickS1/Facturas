@@ -36,7 +36,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       ## Token authenticatable
       # t.string :authentication_token
-      t.integer	 :folio
+      t.integer	 :folio, :null => false, :default => 0
+      t.string   :empresa, :null => false
 
 
       t.timestamps

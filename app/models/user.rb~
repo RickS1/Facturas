@@ -7,14 +7,17 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, 
-:remember_me, :nombre, :rfc,:role,:tags_attributes
+:remember_me, :nombre, :rfc, :role, :empresa, :telefono, :tags_attributes
   validates_presence_of :nombre
   validates_presence_of :rfc
   validates_uniqueness_of :rfc
   validates_presence_of :role
+  validates_presence_of :empresa
+  validates_presence_of :telefono
+  validates_format_of   :telefono, :with => /\A[0-9]{8,15}\Z/, :on => :create
 
   has_many :articulos, dependent: :destroy
-  has_and_belongs_to_many :clientes
+  has_many :clientes, dependent: :destroy
   has_many :facturas
   has_many :sucursals, dependent: :destroy
 

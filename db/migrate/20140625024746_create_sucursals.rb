@@ -11,6 +11,7 @@ class CreateSucursals < ActiveRecord::Migration
       t.string :delegacion
       t.string :ciudad
       t.string :estado
+      t.string :telefono
 
       t.timestamps
     end

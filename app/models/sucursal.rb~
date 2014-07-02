@@ -13,7 +13,7 @@ class Sucursal < ActiveRecord::Base
   validates_presence_of :ciudad
   validates_presence_of :estado
 
-  attr_accessible :pseudonimo
+  attr_accessible :pseudonimo, :calle, :numexterno, :numinterno, :colonia, :codpostal, :delegacion, :ciudad, :estado
 
   def to_label
     "#{pseudonimo}"

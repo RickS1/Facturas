@@ -16,10 +16,13 @@ class FacturasController < ApplicationController
   # GET /facturas/1.json
   def show
     @factura = Factura.find(params[:id])
+    redirect_to :back
+    send_file(@factura.pdf, :filename => "Factura_#{current_user.rfc}_#{current_user.folio}.pdf", :type => "application/pdf")
 
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @factura }
+
     end
   end
 
@@ -48,8 +51,15 @@ class FacturasController < ApplicationController
     current_user.folio = current_user.folio + 1
     current_user.save
     @factura.folio = current_user.folio.to_s
-    @articulos = ArticulosFactura.where(:ip_cliente => current_user.current_sign_in_ip)
-    @articulos.each do |articulo|
+    @articulos = Articulo.all
+    @articulos = Articulo.joins(:articulos_facturas).where("articulos_facturas.ip_cliente" => request.remote_ip)
+    @articulos_facturas = ArticulosFactura.where(:ip_cliente => request.remote_ip)
+    html = File.read("#{Rails.root}/app/views/facturas/factura.html.erb")
+    plantilla = ERB.new(html)
+    kit = PDFKit.new(plantilla.result(binding))
+    arch = kit.to_file("#{Rails.root}/facts/factura_#{current_user.rfc}_#{current_user.folio}.pdf")
+    @factura.pdf = "#{Rails.root}/facts/factura_#{current_user.rfc}_#{current_user.folio}.pdf"
+    @articulos_facturas.each do |articulo|
       articulo.destroy
     end
 

@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(:version => 20140630214521) do
     t.integer  "sucursal_id"
     t.decimal  "total",       :precision => 25, :scale => 2
     t.string   "folio"
-    t.binary   "pdf"
+    t.string   "pdf"
     t.datetime "created_at",                                 :null => false
     t.datetime "updated_at",                                 :null => false
   end
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(:version => 20140630214521) do
     t.string   "delegacion"
     t.string   "ciudad"
     t.string   "estado"
+    t.string   "telefono"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -89,11 +90,13 @@ ActiveRecord::Schema.define(:version => 20140630214521) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.integer  "folio",                  :default => 0,  :null => false
+    t.string   "empresa",                                :null => false
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "role"
   end
 
+  add_index "users", ["email"], :name => "index_users_on_email"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["rfc"], :name => "index_users_on_rfc", :unique => true
 

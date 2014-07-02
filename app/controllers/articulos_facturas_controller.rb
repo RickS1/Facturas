@@ -5,7 +5,7 @@ class ArticulosFacturasController < ApplicationController
   def index
     @articulos_facturas = ArticulosFactura.all
     @articulos = Articulo.all
-    @articulos = Articulo.joins(:articulos_facturas)
+    @articulos = Articulo.joins(:articulos_facturas).where("articulos_facturas.ip_cliente" => request.remote_ip)
 
     respond_to do |format|
       format.html # index.html.erb

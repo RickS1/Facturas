@@ -14,12 +14,11 @@
 <% @facturas.each do |factura| %>
   <tr>
     <td><%= factura.folio %></td>
+    <td><%= YAML::load(factura.pdf) %></td>
 
-    <td><%= link_to 'Mostrar', factura %></td>
+    <td><%= link_to 'Mostrar', '#{Rails.root}/facts'(factura) %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'Emitir factura', new_factura_path %>

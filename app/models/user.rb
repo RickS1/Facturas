@@ -7,11 +7,13 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, 
-:remember_me, :nombre, :rfc,:role,:tags_attributes
+:remember_me, :nombre, :rfc, :role, :empresa, :tags_attributes
   validates_presence_of :nombre
   validates_presence_of :rfc
   validates_uniqueness_of :rfc
   validates_presence_of :role
+  validates_presence_of :empresa
+
 
   has_many :articulos, dependent: :destroy
   has_many :clientes, dependent: :destroy

@@ -11,6 +11,7 @@
     <%= f.input :delegacion, :required => true, :label => 'Delegación/Municipio' %>
     <%= f.input :ciudad, :required => true, :label => 'Ciudad' %>
     <%= f.input :estado, :required => true, :label => 'Estado' %>
+    <%= f.input :telefono, :required => true, :label => 'Teléfono', :hint => 'Sin espacios, ni caracteres especiales, incluyendo clave LADA', :input_html => {:maxlength => 16} %>
   </div>
 
   <div class="form-actions">

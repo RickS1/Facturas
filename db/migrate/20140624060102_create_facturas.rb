@@ -6,7 +6,7 @@ class CreateFacturas < ActiveRecord::Migration
       t.belongs_to :sucursal
       t.decimal :total, :precision => 25, :scale => 2
       t.string :folio
-      t.binary :pdf
+      t.string :pdf
 
       t.timestamps
     end
