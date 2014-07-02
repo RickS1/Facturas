@@ -16,7 +16,7 @@
     <td><%= factura.folio %></td>
     <td><%= YAML::load(factura.pdf) %></td>
 
-    <td><%= link_to 'Mostrar', '#{Rails.root}/facts'(factura) %></td>
+    <td><%= link_to 'Mostrar', factura %></td>
   </tr>
 <% end %>
 </table>

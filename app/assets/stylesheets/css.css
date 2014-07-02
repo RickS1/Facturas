@@ -1,0 +1,59 @@
+#logo
+{
+	width: 320px;
+	
+}
+.container
+{
+	margin-left: 50px;
+	margin-right: 50px;
+}
+
+.letra
+{
+	font-size: 18px;
+	text-align: right;
+}
+h1
+{
+	font-size: 30px;
+	text-align: right;
+}
+
+table
+{
+	
+	width: 1200px;
+}
+.tabla
+{
+border:1px solid black;
+border-collapse:collapse;
+}
+.large
+{
+	width: 600px;
+}
+.emblema
+{
+  float: left;
+  padding-left: 100px;
+}
+.datos
+{
+  float: right;
+  padding-right:140px;
+}
+.alto
+{
+	height: 500px;
+}
+.letra2
+{
+	text-align: right;
+}
+.alto2
+{
+	height: 200px;
+}
+

@@ -1,12 +1,9 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Facturas</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-  <%= javascript_include_tag :defaults %>
-
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/css.css">
+    <title>Factura</title>
 </head>
 <body>
   <div class="container">
@@ -31,24 +28,24 @@
   
 </tr>
     </table>
-    <table class="table table-hover">
+    <table class="tabla">
       
 
 <tr>
-  <th>Cant.</th> 
-  <th>Concepto</th>
-  <th>Precio</th>
-  <th>Iva</th>
-  <th>Neto</th>
+  <th class="tabla">Cant.</th> 
+  <th class="tabla large">Concepto</th>
+  <th class="tabla">Precio</th>
+  <th class="tabla">Iva</th>
+  <th class="tabla">Neto</th>
   
 </tr>
 <% @articulos_facturas.each do |articulo| %>
 <tr>
-   <td><%= articulo.cantidad %></td> 
-  <td><%= @articulos[i].nombre %></td>
-  <td><%= articulo.precio_u*articulo.cantidad %></td>
-  <td><%= articulo.precio_u*articulo.cantidad*0.16 %></td>
-  <td><%= articulo.precio_u*articulo.cantidad*1.16 %></td>
+   <td class="tabla"><%= articulo.cantidad %></td> 
+  <td class="tabla"><%= @articulos[i].nombre %></td>
+  <td class="tabla"><%= articulo.precio_u*articulo.cantidad %></td>
+  <td class="tabla"><%= articulo.precio_u*articulo.cantidad*0.16 %></td>
+  <td class="tabla"><%= articulo.precio_u*articulo.cantidad*1.16 %></td>
 </tr>
 <div style="display: none">
 <%= i = i + 1 %>

@@ -15,7 +15,7 @@ Facturas::Application.routes.draw do
 
   get "inicio/index"
 
-  match '/facts/:id' => 'facturas#show', :action => :get
+  get "facturas/descarga_pdf/:id", :controller => :facturas
 
   devise_for :users, :controllers => { registrations: 'registro', sessions: 'sesion' }
 

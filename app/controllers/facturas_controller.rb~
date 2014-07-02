@@ -16,15 +16,18 @@ class FacturasController < ApplicationController
   # GET /facturas/1.json
   def show
     @factura = Factura.find(params[:id])
-    
-    send_file(@factura.pdf, :filename => "Factura_#{current_user.rfc}_#{current_user.folio}.pdf", :type => "application/pdf")
-    redirect_to :back
+    #send_file(@factura.pdf, :filename => "Factura_#{current_user.rfc}_#{current_user.folio}.pdf", :type => "application/pdf")
 
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @factura }
 
     end
+  end
+
+  def descarga_pdf
+    @factura = Factura.find(params[:id])
+    send_file(@factura.pdf, :filename => "Factura_#{current_user.rfc}_#{factura.folio}.pdf", :type => "application/pdf")
   end
 
   # GET /facturas/new
@@ -58,6 +61,7 @@ class FacturasController < ApplicationController
     html = File.read("#{Rails.root}/app/views/facturas/factura.html.erb")
     plantilla = ERB.new(html)
     kit = PDFKit.new(plantilla.result(binding))
+    kit.stylesheets << "#{Rails.root}/app/assets/stylesheets/css.css"
     arch = kit.to_file("#{Rails.root}/facts/factura_#{current_user.rfc}_#{current_user.folio}.pdf")
     @factura.pdf = "#{Rails.root}/facts/factura_#{current_user.rfc}_#{current_user.folio}.pdf"
     @articulos_facturas.each do |articulo|
