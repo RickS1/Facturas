@@ -15,7 +15,9 @@ Facturas::Application.routes.draw do
 
   get "inicio/index"
 
-  get "facturas/descarga_pdf/:id", :controller => :facturas
+  get "facturas/descarga_pdf/:id", :controller => :facturas, :action => :descarga_pdf
+
+  match "factura/facturar" => "facturas#facturar", :as => :vista_previa, :via => :post
 
   devise_for :users, :controllers => { registrations: 'registro', sessions: 'sesion' }
 

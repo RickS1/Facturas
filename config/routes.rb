@@ -17,6 +17,8 @@ Facturas::Application.routes.draw do
 
   get "facturas/descarga_pdf/:id", :controller => :facturas, :action => :descarga_pdf
 
+  match "factura/facturar" => "facturas#facturar", :as => :vista_previa, :via => :get
+
   devise_for :users, :controllers => { registrations: 'registro', sessions: 'sesion' }
 
   # The priority is based upon order of creation:

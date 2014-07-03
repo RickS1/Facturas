@@ -46,6 +46,30 @@ class FacturasController < ApplicationController
     @factura = Factura.find(params[:id])
   end
 
+  def facturar
+    @factura = Factura.new(params[:factura])
+    @factura.user_id = current_user.id
+    puts(@factura.id)
+    current_user.folio = current_user.folio + 1
+    current_user.save
+    @factura.folio = current_user.folio.to_s
+    @clientes = Cliente.joins(:facturas).where("clientes.id" => @factura.cliente_id).first
+    @sucursals = Sucursal.joins(:facturas).where("sucursals.id" => @factura.sucursal_id).first 
+    @articulos = Articulo.all
+    @articulos = Articulo.joins(:articulos_facturas).where("articulos_facturas.ip_cliente" => request.remote_ip)
+    @articulos_facturas = ArticulosFactura.where(:ip_cliente => request.remote_ip)
+    current_user.folio = current_user.folio-1
+    current_user.save
+
+    respond_to do |format|
+      format.html { render "factura" }
+      format.json { render json: @factura }
+    end
+
+    @factura.destroy
+
+  end
+  
   # POST /facturas
   # POST /facturas.json
   def create
@@ -54,10 +78,12 @@ class FacturasController < ApplicationController
     current_user.folio = current_user.folio + 1
     current_user.save
     @factura.folio = current_user.folio.to_s
+    @clientes = Cliente.joins(:facturas).where("clientes.id" => @factura.cliente_id).first
+    @sucursals = Sucursal.joins(:facturas).where("sucursals.id" => @factura.sucursal_id).first 
     @articulos = Articulo.all
     @articulos = Articulo.joins(:articulos_facturas).where("articulos_facturas.ip_cliente" => request.remote_ip)
     @articulos_facturas = ArticulosFactura.where(:ip_cliente => request.remote_ip)
-    html = File.read("#{Rails.root}/app/views/facturas/factura.html.erb")
+    html = File.read("#{Rails.root}/app/views/facturas/fact.html.erb")
     plantilla = ERB.new(html)
     kit = PDFKit.new(plantilla.result(binding))
     kit.stylesheets << "#{Rails.root}/app/assets/stylesheets/css.css"
@@ -66,7 +92,6 @@ class FacturasController < ApplicationController
     @articulos_facturas.each do |articulo|
       articulo.destroy
     end
-
     respond_to do |format|
       if @factura.save
         format.html { redirect_to @factura, notice: 'Factura emitida exitosamente.' }

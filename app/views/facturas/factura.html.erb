@@ -2,7 +2,10 @@
 <html lang="es">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/css.css">
+    <% content_for :head do -%>
+     <%= stylesheet_link_tag 'css' %>
+   <% end %>
+
     <title>Factura</title>
 </head>
 <body>
@@ -11,19 +14,22 @@
     <div class="emblema"><img src="http://designreviver.com/wp-content/uploads/2009/11/LOGO1.gif" id="logo" alt=""></div>
     <div class="datos">
     <h1><%= current_user.empresa %></h1>
-    <p class="letra">Dirección de la empresa <br>55-55555555 <br><%= current_user.email %><br>México</p>
+    <p class="letra"><%= "#{@sucursals.calle} #{@sucursals.numexterno}, #{@sucursals.colonia}, C.P. #{@sucursals.codpostal}" %><br><%= @sucursals.telefono %> <br><%= current_user.email %><br>México</p>
     </div>
       </div>
 
 <div style="display: none">
 <%= i = 0 %>
+<%= total = 0 %>
+<%= subtotal = 0 %>
+<%= iva = 0 %>
 </div>
       
       
     </header>
     <table class="tabla">
       <tr>
-  <td >Direccion: <br>Nombre: <br> RFC:</td>
+  <td >Direccion: <%= "#{@clientes.calle} #{@clientes.numexterno}, #{@clientes.colonia}, C.P. #{@clientes.codpostal}" %><br>Nombre: <%= @clientes.nombre %> <br> RFC: <%= @clientes.rfc %></td>
 
   
 </tr>
@@ -48,13 +54,16 @@
   <td class="tabla"><%= articulo.precio_u*articulo.cantidad*1.16 %></td>
 </tr>
 <div style="display: none">
-<%= i = i + 1 %>
+<%= i = i + 1%>
+<%= total = total + articulo.precio_u*articulo.cantidad*1.16 %>
+<%= subtotal = subtotal + articulo.precio_u*articulo.cantidad %>
+<%= iva = iva + articulo.precio_u*articulo.cantidad*0.16 %>
 </div>
 <% end %>
     </table>
     <table class="tabla">
       <tr>
-        <td class="tabla letra2 alto2">Precio $0000 <br><br><br>Subtotal $000000 <br><br><br>Total $00000</td>
+        <td class="tabla letra2 alto2">Subtotal: $<%= subtotal %> <br><br><br>IVA: $<%= iva %> <br><br><br>Total: $<%= total %></td>
       </tr>
       <tr>
         <td class="tabla alto2"><img src="http://joselspovi.files.wordpress.com/2013/12/codigo-qr.jpg" width="200px" alt=""> *AQUI VA LA CADENA!*</td>
