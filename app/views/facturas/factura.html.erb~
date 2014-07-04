@@ -2,7 +2,7 @@
 <html lang="es">
   <head>
     <meta charset="utf-8">
-    <% content_for :head do %>
+    <% content_for :head do -%>
      <%= stylesheet_link_tag 'css' %>
    <% end %>
 
@@ -71,6 +71,8 @@
     </table>
   </div>
 </body>
+
+<%= button_to "Regresar", new_factura_path, :class => 'btn btn-primary', :method => :get %>
    
   
   </html>

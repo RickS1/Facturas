@@ -4,12 +4,12 @@
 
   <div class="form-inputs">
     <%= f.association :sucursal, collection: User.find(current_user.id).sucursals, include_blank: false %>
-    <%= f.association :cliente, collection: User.find(current_user.id).clientes, include_blank: false %>
+    <%= f.association :cliente, collection: User.find(current_user.id).clientes, include_blank: false%>
   </div>
-
   <div class="form-actions">
     <%= f.button :submit, "Generar factura", :class => 'btn btn-primary' %>
-<%= link_to "Vista previa", :action => :facturar, :factura => {:cliente_id => 2, :sucursal_id => 1}%>
+  <%= f.button :submit, "Vista previa", :class => 'btn btn-info' %>
+  
   </div>
   
 <% end %>
