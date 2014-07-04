@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20140630214521) do
   create_table "articulos_facturas", :force => true do |t|
     t.integer  "articulo_id"
     t.integer  "factura_id"
+    t.integer  "user_id"
     t.decimal  "precio_u",    :precision => 25, :scale => 2
     t.decimal  "cantidad"
     t.decimal  "subtotal",    :precision => 25, :scale => 2

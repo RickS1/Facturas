@@ -3,6 +3,7 @@
 <%= i = 0 %>
 </div>
 
+<% current_user.id %>
 <table class="table table-hover">
   <tr>
     <th>Artículo</th>
@@ -34,3 +35,5 @@
 <br />
 
 <%= link_to 'Añadir artículo', new_articulos_factura_path %>
+<%= link_to 'Continuar trámite', new_factura_path %>
+

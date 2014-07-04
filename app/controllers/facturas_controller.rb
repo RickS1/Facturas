@@ -54,11 +54,10 @@ class FacturasController < ApplicationController
     current_user.folio = current_user.folio + 1
     current_user.save
     @factura.folio = current_user.folio.to_s
-    @clientes = Cliente.joins(:facturas).where("clientes.id" => @factura.cliente_id).first
-    @sucursals = Sucursal.joins(:facturas).where("sucursals.id" => @factura.sucursal_id).first 
-    @articulos = Articulo.all
+    @clientes = Cliente.where(:id => params[:factura][:cliente_id]).first
+    @sucursals = Sucursal.where(:id => params[:factura][:sucursal_id]).first
     @articulos = Articulo.joins(:articulos_facturas).where("articulos_facturas.ip_cliente" => request.remote_ip)
-    @articulos_facturas = ArticulosFactura.where(:ip_cliente => request.remote_ip)
+    @articulos_facturas = ArticulosFactura.where(:ip_cliente => request.remote_ip, :user_id => current_user.id)
     if params[:commit] == "Generar factura"
       html = File.read("#{Rails.root}/app/views/facturas/fact.html.erb")
       plantilla = ERB.new(html)

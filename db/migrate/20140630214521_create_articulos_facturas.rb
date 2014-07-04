@@ -3,6 +3,7 @@ class CreateArticulosFacturas < ActiveRecord::Migration
     create_table :articulos_facturas do |t|
       t.belongs_to :articulo
       t.belongs_to :factura
+      t.belongs_to :user
       t.decimal :precio_u, :precision => 25, :scale => 2
       t.decimal :cantidad
       t.decimal :subtotal, :precision => 25, :scale => 2

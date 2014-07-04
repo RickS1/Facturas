@@ -3,10 +3,9 @@ class ArticulosFacturasController < ApplicationController
   # GET /articulos_facturas.json
   before_filter :authenticate_user!
   def index
-    @articulos_facturas = ArticulosFactura.all
-    @articulos = Articulo.all
+    @articulos_facturas = ArticulosFactura.joins(:articulo,:user).where(:ip_cliente => request.remote_ip,:user_id => current_user.id)
     @articulos = Articulo.joins(:articulos_facturas).where("articulos_facturas.ip_cliente" => request.remote_ip)
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @articulos_facturas }
@@ -45,6 +44,7 @@ class ArticulosFacturasController < ApplicationController
   def create
     @articulos_factura = ArticulosFactura.new(params[:articulos_factura])
     @articulos_factura.ip_cliente = request.remote_ip
+    @articulos_factura.user_id = current_user.id
 
     respond_to do |format|
       if @articulos_factura.save
