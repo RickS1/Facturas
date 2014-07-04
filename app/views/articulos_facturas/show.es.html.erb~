@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Precio unitario:</b>
+  <b>Precio u:</b>
   <%= @articulos_factura.precio_u %>
 </p>
 
@@ -21,5 +21,5 @@
 </p>
 
 
-<%= link_to 'Editar', edit_articulos_factura_path(@articulos_factura) %> |
-<%= link_to 'Regresar', articulos_facturas_path %>
+<%= link_to 'Edit', edit_articulos_factura_path(@articulos_factura) %> |
+<%= link_to 'Back', articulos_facturas_path %>

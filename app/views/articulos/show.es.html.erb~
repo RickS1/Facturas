@@ -6,10 +6,10 @@
 </p>
 
 <p>
-  <b>Descripción:</b>
+  <b>Descripcion:</b>
   <%= @articulo.descripcion %>
 </p>
 
 
-<%= link_to 'Editar', edit_articulo_path(@articulo) %> |
-<%= link_to 'Regresar', articulos_path %>
+<%= link_to 'Edit', edit_articulo_path(@articulo) %> |
+<%= link_to 'Back', articulos_path %>

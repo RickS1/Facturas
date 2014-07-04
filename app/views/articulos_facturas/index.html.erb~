@@ -16,6 +16,7 @@
   <tr>
     <td><%= @articulos.each do |articulo| %>
          <%= articulo.nombre %></td>
+    <% end %>
     <td><%= articulos_factura.precio_u %></td>
     <td><%= articulos_factura.cantidad %></td>
     <td><%= articulos_factura.subtotal %></td>

@@ -16,7 +16,7 @@
     <td><%= factura.folio %></td>
     <td><%= YAML::load(factura.pdf) %></td>
 
-    <td><%= link_to 'Mostrar', factura %></td>
+    <td> <%= link_to 'Descargar factura', :action => :descarga_pdf, :id => factura.id %></td>
   </tr>
 <% end %>
 </table>

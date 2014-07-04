@@ -1,5 +1,5 @@
-<h1>Nueva sucursal</h1>
+<h2>Nueva sucursal</h2>
 
 <%= render 'form' %>
 
-<%= link_to 'Regresar', sucursals_path %>
+<%= button_to 'Regresar', sucursals_path, :method => :get, :class => 'btn btn-primary' %>

@@ -2,4 +2,4 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Regresar', articulos_factura_path %>
+<%= link_to 'Regresar', articulos_facturas_path %>

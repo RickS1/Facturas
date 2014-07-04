@@ -3,7 +3,6 @@
 <%= i = 0 %>
 </div>
 
-<% current_user.id %>
 <table class="table table-hover">
   <tr>
     <th>Artículo</th>

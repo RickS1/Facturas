@@ -6,7 +6,7 @@
 </p>
 
 <p>
-  <b>RFC:</b>
+  <b>Rfc:</b>
   <%= @cliente.rfc %>
 </p>
 
@@ -16,12 +16,12 @@
 </p>
 
 <p>
-  <b>Número exterior:</b>
+  <b>Numexterno:</b>
   <%= @cliente.numexterno %>
 </p>
 
 <p>
-  <b>Número interior:</b>
+  <b>Numinterno:</b>
   <%= @cliente.numinterno %>
 </p>
 
@@ -31,12 +31,12 @@
 </p>
 
 <p>
-  <b>Código postal:</b>
+  <b>Codpostal:</b>
   <%= @cliente.codpostal %>
 </p>
 
 <p>
-  <b>Delegación/Municipio:</b>
+  <b>Delegacion:</b>
   <%= @cliente.delegacion %>
 </p>
 
@@ -51,5 +51,5 @@
 </p>
 
 
-<%= link_to 'Editar', edit_cliente_path(@cliente) %> |
-<%= link_to 'Regresar', clientes_path %>
+<%= link_to 'Edit', edit_cliente_path(@cliente) %> |
+<%= link_to 'Back', clientes_path %>

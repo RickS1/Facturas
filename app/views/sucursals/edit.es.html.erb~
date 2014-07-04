@@ -1,4 +1,4 @@
-<h2>Editar datos de sucursal</h2>
+<h1>Editar datos de sucursal</h1>
 
 <%= render 'form' %>
 
