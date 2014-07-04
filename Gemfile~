@@ -24,8 +24,8 @@ gem 'acts_as_tenant'
 gem 'select2-rails'
 gem 'wkhtmltopdf-binary'
 gem 'pdfkit'
-#gem 'chosen-rails'
-#gem 'chosen-sass-bootstrap-rails'
+#gem 'paperclip', '~> 4.1'
+
 #gem 'rake-convert', '~> 0.0.4'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
