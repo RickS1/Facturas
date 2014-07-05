@@ -1,4 +1,4 @@
-<h1>Añadir artículos a la factura</h1>
+<h2>Añadir artículos a la factura</h2>
 <div style="display: none">
 <%= i = 0 %>
 </div>

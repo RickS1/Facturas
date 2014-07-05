@@ -4,6 +4,7 @@
   <tr>
     <th>Nombre</th>
     <th>Descripción</th>
+    <th>Precio unitario</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,6 +14,7 @@
   <tr>
     <td><%= articulo.nombre %></td>
     <td><%= articulo.descripcion %></td>
+    <td><%= articulo.precio_u %></td>
     <td><%= link_to 'Mostrar', articulo %></td>
     <td><%= link_to 'Editar', edit_articulo_path(articulo) %></td>
     <td><%= link_to 'Eliminar', articulo, confirm: '¿Está seguro(a)?', method: :delete %></td>

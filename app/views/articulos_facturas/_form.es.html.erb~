@@ -3,6 +3,7 @@
 
   <div class="form-inputs">
     <%= f.association :articulo, collection: User.find(current_user.id).articulos, include_blank: false %>
+    <%= f.input :precio_u, :label => 'Precio unitario' %>
     <%= f.input :cantidad, :label => 'Cantidad' %>
   </div>
 

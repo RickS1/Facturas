@@ -4,6 +4,7 @@ class CreateArticulos < ActiveRecord::Migration
       t.belongs_to :user
       t.string :nombre
       t.string :descripcion
+      t.decimal :precio_u, :precision => 25, :scale => 2
 
       t.timestamps
     end

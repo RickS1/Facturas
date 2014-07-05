@@ -10,8 +10,8 @@
   <header>
     <div class="emblema"><img src="http://designreviver.com/wp-content/uploads/2009/11/LOGO1.gif" id="logo" alt=""></div>
     <div class="datos">
-    <h1><%= current_user.empresa %></h1>
-    <p class="letra"><%= "#{@sucursals.calle} #{@sucursals.numexterno}, #{@sucursals.colonia}, C.P. #{@sucursals.codpostal}" %><br><%= @sucursals.telefono %> <br><%= current_user.email %><br>México</p>
+    <h2><%= current_user.empresa %></h2>
+    <p class="letra"><%= "#{@sucursals.calle} #{@sucursals.numexterno} #{@sucursals.numinterno}, #{@sucursals.colonia}, C.P. #{@sucursals.codpostal}" %><br><%= @sucursals.telefono %> <br><%= current_user.email %><br>México</p>
     </div>
       </div>
 
@@ -26,7 +26,7 @@
     </header>
     <table class="tabla">
       <tr>
-  <td >Direccion: <%= "#{@clientes.calle} #{@clientes.numexterno}, #{@clientes.colonia}, C.P. #{@clientes.codpostal}" %><br>Nombre: <%= @clientes.nombre %> <br> RFC: <%= @clientes.rfc %></td>
+  <td >Direccion: <%= "#{@clientes.calle} #{@clientes.numexterno} #{@clientes.numinterno}, #{@clientes.colonia}, C.P. #{@clientes.codpostal}" %><br>Nombre: <%= @clientes.nombre %> <br> RFC: <%= @clientes.rfc %></td>
 
   
 </tr>
@@ -46,15 +46,15 @@
 <tr>
    <td class="tabla"><%= articulo.cantidad %></td> 
   <td class="tabla"><%= @articulos[i].nombre %></td>
-  <td class="tabla"><%= articulo.precio_u*articulo.cantidad %></td>
-  <td class="tabla"><%= articulo.precio_u*articulo.cantidad*0.16 %></td>
-  <td class="tabla"><%= articulo.precio_u*articulo.cantidad*1.16 %></td>
+  <td class="tabla"><%= @articulos[i].precio_u*articulo.cantidad %></td>
+  <td class="tabla"><%= @articulos[i].precio_u*articulo.cantidad*0.16 %></td>
+  <td class="tabla"><%= @articulos[i].precio_u*articulo.cantidad*1.16 %></td>
 </tr>
 <div style="display: none">
 <%= i = i + 1%>
-<%= total = total + articulo.precio_u*articulo.cantidad*1.16 %>
-<%= subtotal = subtotal + articulo.precio_u*articulo.cantidad %>
-<%= iva = iva + articulo.precio_u*articulo.cantidad*0.16 %>
+<%= total = total + @articulos[i].precio_u*articulo.cantidad*1.16 %>
+<%= subtotal = subtotal + @articulos[i].precio_u*articulo.cantidad %>
+<%= iva = iva + @articulos[i].precio_u*articulo.cantidad*0.16 %>
 </div>
 <% end %>
     </table>

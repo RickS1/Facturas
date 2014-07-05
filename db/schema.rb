@@ -17,21 +17,18 @@ ActiveRecord::Schema.define(:version => 20140630214521) do
     t.integer  "user_id"
     t.string   "nombre"
     t.string   "descripcion"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.decimal  "precio_u",    :precision => 25, :scale => 2
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
   end
 
   create_table "articulos_facturas", :force => true do |t|
     t.integer  "articulo_id"
-    t.integer  "factura_id"
     t.integer  "user_id"
-    t.decimal  "precio_u",    :precision => 25, :scale => 2
     t.decimal  "cantidad"
-    t.decimal  "subtotal",    :precision => 25, :scale => 2
-    t.decimal  "iva",         :precision => 25, :scale => 2
     t.string   "ip_cliente"
-    t.datetime "created_at",                                 :null => false
-    t.datetime "updated_at",                                 :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "clientes", :force => true do |t|

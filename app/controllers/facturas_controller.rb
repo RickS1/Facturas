@@ -53,7 +53,7 @@ class FacturasController < ApplicationController
     @factura.user_id = current_user.id
     current_user.folio = current_user.folio + 1
     current_user.save
-    @factura.folio = current_user.folio.to_s
+    @factura.folio = current_user.folio.to_s.rjust(7,"0")
     @clientes = Cliente.where(:id => params[:factura][:cliente_id]).first
     @sucursals = Sucursal.where(:id => params[:factura][:sucursal_id]).first
     @articulos = Articulo.joins(:articulos_facturas).where("articulos_facturas.ip_cliente" => request.remote_ip)

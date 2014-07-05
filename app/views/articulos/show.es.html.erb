@@ -10,6 +10,11 @@
   <%= @articulo.descripcion %>
 </p>
 
+<p>
+  <b>Precio unitario:</b>
+  <%= @articulo.precio_u %>
+</p>
+
 
 <%= link_to 'Editar', edit_articulo_path(@articulo) %> |
 <%= link_to 'Regresar', articulos_path %>

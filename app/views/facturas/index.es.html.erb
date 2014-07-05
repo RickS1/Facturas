@@ -3,9 +3,6 @@
 <table class="table table-hover">
   <tr>
     <th>Folio</th>
-    <th>Subtotal</th>
-    <th>Iva</th>
-    <th>Total</th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,8 +11,6 @@
 <% @facturas.each do |factura| %>
   <tr>
     <td><%= factura.folio %></td>
-    <td><%= YAML::load(factura.pdf) %></td>
-
     <td> <%= link_to 'Descargar factura', :action => :descarga_pdf, :id => factura.id %></td>
   </tr>
 <% end %>
