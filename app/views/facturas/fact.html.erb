@@ -6,9 +6,10 @@
     <title>Factura</title>
 </head>
 <body>
+<% imagen= "#{Rails.root}/public"+current_user.logo_url(:thumb).to_s %>
   <div class="container">
   <header>
-    <div class="emblema"><img src="http://designreviver.com/wp-content/uploads/2009/11/LOGO1.gif" id="logo" alt=""></div>
+    <div class="emblema"><img src="<%= imagen %>" id="logo" /></div>
     <div class="datos">
     <h2><%= current_user.empresa %></h2>
     <p class="letra"><%= "#{@sucursals.calle} #{@sucursals.numexterno} #{@sucursals.numinterno}, #{@sucursals.colonia}, C.P. #{@sucursals.codpostal}" %><br><%= @sucursals.telefono %> <br><%= current_user.email %><br>México</p>

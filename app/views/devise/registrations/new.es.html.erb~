@@ -1,12 +1,14 @@
 <h2>Registrarse</h2>
 
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)), :html => {:multipart => true } do |f| %>
   <%= f.error_notification %>
 <div>
-     <%= f.input :nombre, :required => true, :autofocus => true, :placeholder => 'Su nombre', :label => "Nombre", :hint => 'Nombre registrado ante el SAT' %>
+     <%= f.input :nombre, :required => true, :autofocus => true, :placeholder => 'Su nombre', :label => "Nombre" %>
      <select id="e1" name="user[role]"><option value="fisico">Físico</option>
 <option value="moral">Moral</option></select>
      <%= f.input :rfc, :required => true, :autofocus => true, :label => "RFC", :hint => 'RFC de contribuyente', :input_html => {:maxlength => 16} %>
+
+     <%= f.input :empresa, :required => true, :autofocus => true, :label => "Nombre de la empresa", :hint => 'Registrado ante el SAT' %>
      <%= f.input :email, :required => true, :autofocus => true, :placeholder => 'algo123@dominio.com', :label => "Correo electrónico" %>
 </div>
 <div>
@@ -15,6 +17,8 @@
 <div>
     <%= f.input :password_confirmation, :required => true, :label => 'Confirmar contraseña', :input_html => {:maxlength => 15} %>
 </div>
+
+   <%= f.file_field :logo %>
 
   <div class="form-actions">
     <%= f.button :submit, "Registrarse", :class => 'btn btn-primary' %>

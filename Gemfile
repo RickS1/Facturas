@@ -35,9 +35,11 @@ gem 'uglifier', '>= 1.0.3'
 gem 'sprockets-rails', '=2.0.0.backport1'
 gem 'sprockets', '=2.2.2.backport2'
 gem 'sass-rails', github: 'guilleiguaran/sass-rails', branch: 'backport'
-
+gem 'rmagick', '2.13.1'
+gem 'carrierwave'
 gem 'devise'
 gem 'jquery-rails'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -1,6 +1,6 @@
 <h2>Registrarse</h2>
 
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:multipart => true })  do |f| %>
   <%= f.error_notification %>
 <div>
      <%= f.input :nombre, :required => true, :autofocus => true, :placeholder => 'Su nombre', :label => "Nombre" %>
@@ -17,6 +17,8 @@
 <div>
     <%= f.input :password_confirmation, :required => true, :label => 'Confirmar contraseña', :input_html => {:maxlength => 15} %>
 </div>
+
+   <%= f.file_field :logo %>
 
   <div class="form-actions">
     <%= f.button :submit, "Registrarse", :class => 'btn btn-primary' %>

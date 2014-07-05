@@ -19,7 +19,7 @@ Facturas::Application.routes.draw do
 
   match "factura/facturar" => "facturas#facturar", :as => :vista_previa, :via => :get
 
-  get "/stylesheets/css.css"
+  get "logos", :controller => :facturas, :action => :create
 
   devise_for :users, :controllers => { registrations: 'registro', sessions: 'sesion' }
 

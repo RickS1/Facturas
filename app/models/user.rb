@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, 
-:remember_me, :nombre, :rfc, :role, :empresa, :tags_attributes
+:remember_me, :nombre, :rfc, :role, :empresa, :logo, :tags_attributes
   validates_presence_of :nombre
   validates_presence_of :rfc
   validates_uniqueness_of :rfc
@@ -20,6 +20,8 @@ class User < ActiveRecord::Base
   has_many :facturas
   has_many :sucursals, dependent: :destroy
   has_many :articulos_facturas, dependent: :destroy
+
+  mount_uploader :logo, LogotipoUploader
 
   ROLES = %w[fisico moral]
 end
