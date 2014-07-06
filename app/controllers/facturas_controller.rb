@@ -68,12 +68,12 @@ class FacturasController < ApplicationController
         kit.stylesheets << "#{Rails.root}/app/assets/stylesheets/css.css"
         arch = kit.to_file("#{Rails.root}/facts/factura_#{current_user.rfc}_#{current_user.folio}.pdf")
         @factura.pdf = "#{Rails.root}/facts/factura_#{current_user.rfc}_#{current_user.folio}.pdf"
-        @articulos_facturas.each do |articulo|
+        @factura.subtotal = 0
+        @factura.iva = 0
+        @factura.total = 0
+        @articulos_facturas.each do |articulo| 
           articulo.destroy
         end
-        @factura.subtotal = subtotal
-        @factura.iva = iva
-        @factura.total = total
         respond_to do |format|
           if @factura.save
             format.html { redirect_to @factura, notice: 'Factura emitida exitosamente.' }

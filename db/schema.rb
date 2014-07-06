@@ -52,6 +52,8 @@ ActiveRecord::Schema.define(:version => 20140705175336) do
     t.integer  "cliente_id"
     t.integer  "sucursal_id"
     t.decimal  "total",       :precision => 25, :scale => 2
+    t.decimal  "subtotal",    :precision => 25, :scale => 2
+    t.decimal  "iva",         :precision => 25, :scale => 2
     t.string   "folio"
     t.string   "pdf"
     t.datetime "created_at",                                 :null => false
