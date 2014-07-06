@@ -5,7 +5,7 @@ class Factura < ActiveRecord::Base
 
   attr_accessible :cliente_id, :sucursal_id
 
-  validates_presence_of :cliente_id
-  validates_presence_of :sucursal_id
+  validates_presence_of :cliente_id, :message => "no puede quedar vacío."
+  validates_presence_of :sucursal_id, :message => "no puede quedar vacío."
 
 end

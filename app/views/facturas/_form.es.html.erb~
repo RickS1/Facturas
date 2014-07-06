@@ -2,9 +2,17 @@
 <%= simple_form_for(@factura) do |f| %>
   <%= f.error_notification %>
 
+  <% if User.find(current_user.id).sucursals == [] %>
+    <%= "· No tiene sucursales agregadas." %>
+  <% end %>
+  <% if User.find(current_user.id).clientes == [] %>
+    <br>
+    <%= "·No tiene clientes agregados." %>
+  <% end %>
+
   <div class="form-inputs">
     <%= f.association :sucursal, collection: User.find(current_user.id).sucursals, include_blank: false, :input_html => {:id => "e1" } %>
-    <%= f.association :cliente, collection: User.find(current_user.id).clientes, include_blank: false, :input_html => {:id => "e1" } %>
+    <%= f.association :cliente, collection: User.find(current_user.id).clientes, include_blank: false, :input_html => {:id => "e2" } %>
   </div>
   <div class="form-actions">
     <%= f.button :submit, "Generar factura", :class => 'btn btn-primary' %>

@@ -50,43 +50,50 @@ class FacturasController < ApplicationController
   # POST /facturas.json
   def create
     @factura = Factura.new(params[:factura])
-    @factura.user_id = current_user.id
-    current_user.folio = current_user.folio + 1
-    current_user.save
-    @factura.folio = current_user.folio.to_s.rjust(7,"0")
-    @clientes = Cliente.where(:id => params[:factura][:cliente_id]).first
-    @sucursals = Sucursal.where(:id => params[:factura][:sucursal_id]).first
-    @articulos = Articulo.joins(:articulos_facturas).where("articulos_facturas.ip_cliente" => request.remote_ip)
-    @articulos_facturas = ArticulosFactura.where(:ip_cliente => request.remote_ip, :user_id => current_user.id)
-    if params[:commit] == "Generar factura"
-      html = File.read("#{Rails.root}/app/views/facturas/fact.html.erb")
-      plantilla = ERB.new(html)
-      kit = PDFKit.new(plantilla.result(binding))
-      kit.stylesheets << "#{Rails.root}/app/assets/stylesheets/css.css"
-      arch = kit.to_file("#{Rails.root}/facts/factura_#{current_user.rfc}_#{current_user.folio}.pdf")
-      @factura.pdf = "#{Rails.root}/facts/factura_#{current_user.rfc}_#{current_user.folio}.pdf"
-      @articulos_facturas.each do |articulo|
-        articulo.destroy
-      end
-      respond_to do |format|
-        if @factura.save
-          format.html { redirect_to @factura, notice: 'Factura emitida exitosamente.' }
-          format.json { render json: @factura, status: :created, location: @factura }
-        else
-          format.html { render action: "new" }
-          format.json { render json: @factura.errors, status: :unprocessable_entity }
-        end
-      end
+    if params[:factura][:cliente_id] == nil || params[:factura][:sucursal_id] == nil
+      redirect_to :back
     else
-      current_user.folio = current_user.folio-1
+      @factura.user_id = current_user.id
+      current_user.folio = current_user.folio + 1
       current_user.save
+      @factura.folio = current_user.folio.to_s.rjust(7,"0")
+      @clientes = Cliente.where(:id => params[:factura][:cliente_id]).first
+      @sucursals = Sucursal.where(:id => params[:factura][:sucursal_id]).first
+      @articulos = Articulo.joins(:articulos_facturas).where("articulos_facturas.ip_cliente" => request.remote_ip)
+      @articulos_facturas = ArticulosFactura.where(:ip_cliente => request.remote_ip, :user_id => current_user.id)
+      if params[:commit] == "Generar factura"
+        html = File.read("#{Rails.root}/app/views/facturas/fact.html.erb")
+        plantilla = ERB.new(html)
+        kit = PDFKit.new(plantilla.result(binding))
+        kit.stylesheets << "#{Rails.root}/app/assets/stylesheets/css.css"
+        arch = kit.to_file("#{Rails.root}/facts/factura_#{current_user.rfc}_#{current_user.folio}.pdf")
+        @factura.pdf = "#{Rails.root}/facts/factura_#{current_user.rfc}_#{current_user.folio}.pdf"
+        @articulos_facturas.each do |articulo|
+          articulo.destroy
+        end
+        @factura.subtotal = subtotal
+        @factura.iva = iva
+        @factura.total = total
+        respond_to do |format|
+          if @factura.save
+            format.html { redirect_to @factura, notice: 'Factura emitida exitosamente.' }
+            format.json { render json: @factura, status: :created, location: @factura }
+          else
+            format.html { render action: "new" }
+            format.json { render json: @factura.errors, status: :unprocessable_entity }
+          end
+        end
+      else
+        current_user.folio = current_user.folio-1
+        current_user.save
 
-      respond_to do |format|
-        format.html { render "factura" }
-        format.json { render json: @factura }
+        respond_to do |format|
+          format.html { render "factura" }
+          format.json { render json: @factura }
+        end
+
+        @factura.destroy
       end
-
-      @factura.destroy
     end
   end
 

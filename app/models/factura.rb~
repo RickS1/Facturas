@@ -3,7 +3,7 @@ class Factura < ActiveRecord::Base
   belongs_to :cliente
   belongs_to :sucursal
 
-  atrr_accessible :cliente_id, :sucursal_id
+  attr_accessible :cliente_id, :sucursal_id
 
   validates_presence_of :cliente_id
   validates_presence_of :sucursal_id
