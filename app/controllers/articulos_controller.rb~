@@ -5,7 +5,6 @@ class ArticulosController < ApplicationController
   def index
     @articulos = Articulo.all
     @articulos = current_user.articulos
-    #@articulos= articulos.shift
 
     respond_to do |format|
       format.html # index.html.erb
@@ -69,6 +68,14 @@ class ArticulosController < ApplicationController
         format.html { render action: "edit" }
         format.json { render json: @articulo.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def nombre?(atrib)
+    if atrib == "nombre"
+      puts "El nombre "
+    else
+      puts "El precio "
     end
   end
 

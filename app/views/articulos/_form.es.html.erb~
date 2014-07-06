@@ -1,12 +1,38 @@
 <%= simple_form_for(@articulo) do |f| %>
   <%= f.error_notification %>
+  <% if @articulo.errors.any? %>
+    <% @articulo.errors.each do |atrib,error| %>
+        <div id="error_explanation"><p>
+         <% if atrib == :nombre %>
+         <p>El nombre 
+         <% else %>
+         <p> El precio 
+         <%end%>
+         <%= "#{error}" %></p></div>
+    <% end %>
+  <% end %>
 
-  <div class="form-inputs">
-    <%= f.input :nombre, :label => 'Nombre' %>
-    <%= f.input :descripcion, :label => 'Descripción' %>
+  <div class="input-group">
+  <span class="input-group-addon" style="width:8.5em;">Nombre</span>
+  <input type="text" class="form-control" id="articulo_nombre" name="articulo[nombre]" style="width:30em;" />
+  
   </div>
+  <br>
+  
+  <div class="input-group">
+  <span class="input-group-addon" style="width:8.5em;">Descripción</span>
+  <input type="text" class="form-control" id="articulo_descripcion" name="articulo[descripcion]"  style="width:30em;" type="text" />
+  </div>
+  <br>
 
-  <div class="form-actions">
-    <%= f.button :submit, :class => 'btn btn-primary' %>
+  <div class="input-group">
+  <span class="input-group-addon" style="width:8.5em;">Precio unitario</span>
+  <input type="text" class="numeric decimal optional form-control form-control" id="articulo_precio_u" name="articulo[precio_u]" step="any" type="number" style="width:30em;" />
+  </div>
+  <br>
+
+
+  <div class="btn-group">
+  <%= f.button :submit, :class => 'btn btn-primary' %>
   </div>
 <% end %>

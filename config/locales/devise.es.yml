@@ -91,3 +91,10 @@ es:
             email:
               invalid: 'Correo inválido.'
               blank: 'No puede estar en blanco.'
+        articulo:
+          attributes:
+            nombre:
+              blank: 'no puede estar vacío.'
+            precio_u:
+              blank: 'no puede estar vacío.'
+              invalid: 'formato incorrecto. Debe ser numérico a 2 decimales.'

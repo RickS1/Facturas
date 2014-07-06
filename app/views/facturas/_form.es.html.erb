@@ -3,8 +3,8 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :sucursal, collection: User.find(current_user.id).sucursals, include_blank: false %>
-    <%= f.association :cliente, collection: User.find(current_user.id).clientes, include_blank: false %>
+    <%= f.association :sucursal, collection: User.find(current_user.id).sucursals, include_blank: false, :input_html => {:id => "e1" } %>
+    <%= f.association :cliente, collection: User.find(current_user.id).clientes, include_blank: false, :input_html => {:id => "e2" } %>
   </div>
   <div class="form-actions">
     <%= f.button :submit, "Generar factura", :class => 'btn btn-primary' %>

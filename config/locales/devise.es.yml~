@@ -74,8 +74,27 @@ es:
               invalid: 'RFC ya registrado o no válido.'
             calle:
               blank: 'No puede estar vacío.'
+            numexterno:
+              blank: 'No puede estar vacío.'
+            colonia:
+              blank: 'No puede estar vacío.'
+            codpostal:
+              blank: 'No puede estar vacío.'
+            delegacion:
+              blank: 'No puede estar vacío.'
+            ciudad:
+              blank: 'No puede estar vacío.'
+            estado:
+              blank: 'No puede estar vacío.'
             password:
               blank: 'No puede estar vacío.'
             email:
               invalid: 'Correo inválido.'
               blank: 'No puede estar en blanco.'
+        articulo:
+          attributes:
+            nombre:
+              blank: 'no puede estar vacío.'
+            precio_u:
+              blank: 'no puede estar vacío.'
+              invalid: 'Formato incorrecto. Debe ser numérico a 2 decimales.'
